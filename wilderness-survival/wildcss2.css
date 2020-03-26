@@ -1,0 +1,370 @@
+/* CSS Document */
+
+/* General Page Formatting */
+
+div, p {
+font-family:"Trebuchet MS";
+font-size:12px;
+}
+
+a {
+text-decoration:none;
+color:#79A22A;
+}
+
+a:hover {
+text-decoration:underline
+}
+a.foot {
+text-decoration:none;
+color:#ffffff;
+}
+
+a.foot:hover {
+text-decoration:underline
+}
+a.menu {
+text-decoration:none;
+color:black;
+}
+
+a.menu:hover {
+text-decoration:underline
+}
+
+
+
+.foot		{text-decoration: none; color: 000000; font-family: arial; font-size: 8pt;}
+
+a.sub		{text-decoration: none; color: #79A22A; font-family: arial; font-size: 12pt; }
+a.sub:hover {text-decoration: none; color: black; font-family: arial; font-size: 12pt; }
+a.high		{text-decoration: none; color: FFCC00; font-family: arial; font-size: 12pt; font-weight: bold;}
+a.high:hover {text-decoration: none; color: white; font-family: arial; font-size: 12pt; font-weight: bold;}
+
+
+
+h1 {
+font-size:24px;
+color:#638919;
+border-bottom-color:#000000;
+border-bottom-style:dotted;
+border-bottom-width:thin;
+width: 440px;
+margin-bottom: 5px;
+}
+h2 {
+
+font-size:20px;
+color:#638919;
+border-bottom-color:#000000;
+border-bottom-style:dotted;
+border-bottom-width:thin;
+width: 440px;
+margin-bottom: 5px;
+}
+h3 {
+font-size:18px;
+color:#638919;
+border-bottom-color:#000000;
+border-bottom-style:dotted;
+border-bottom-width:thin;
+width: 440px;
+margin-bottom: 5px;
+}
+
+.italics {
+font-style:italic;
+}
+
+/* Background Dirt */
+body {
+background-image:url(/forums/images/mossyrock.jpg);
+background-repeat:repeat;
+
+
+}
+
+/* Page Container */
+
+#pagebg {
+	margin-left: auto;
+	margin-right: auto;
+background-image:url(page2.jpg);
+background-repeat:repeat-y;
+position:relative;
+width:1000px;
+height:inherit;
+}
+
+/* Header */
+
+#headercontainer {
+width:1000px;
+height:240px;
+}
+
+/* Top of Header with Network Links */
+
+#headtop {
+width:1000px;
+height:31px;
+background-image:url(headertop2.jpg);
+background-repeat:no-repeat;
+text-align:right;
+padding-right:40px;
+padding-top:8px;
+}
+
+.networktext {
+font:"Trebuchet MS", Arial, sans-serif;
+font-size:14px;
+color:#DCBF66;
+padding-right:10px;
+}
+
+.networklink {
+font:"Trebuchet MS", Arial, sans-serif;
+font-size:1.2em;
+color:#DCBF66;
+
+text-decoration:none;
+}
+.networklink:hover {
+font:"Trebuchet MS", Arial, sans-serif;
+font-size:1.2em;
+color:#000000;
+
+text-decoration:none;
+}
+
+
+/* Mid header, holds title pic and adverts */
+
+#headermid {
+background-color:#79A22A;
+height:200px;
+width:1000px;
+margin-top: -10px;
+}
+
+#titlepic {
+background-image:url(newheaderbg.jpg);
+height:177px;
+width:1000px;
+text-align: center;
+}
+
+#titlebottom {
+background-image:url(titlebottom.jpg);
+width:1000px;
+height:23px;
+
+}
+
+/* Bottom Header Curve */
+
+#headerbottom {
+background-image:url(headerbottom2.jpg);
+background-repeat:no-repeat;
+height:23px;
+width:1000px;
+}
+
+/* Main Content */
+
+#content {
+width:1000px;
+padding-top: 10px;
+min-height: 100%;
+}
+
+/*left column*/
+
+#leftcolumn {
+width:210px;
+float:left;
+height:100%;
+}
+
+#homebutton {
+background-color:#C49320;s
+height:21px;
+width:205px;
+border-bottom-style:dotted;
+border-bottom-width:thin;
+border-top-style:dotted;
+border-top-width:thin;
+padding-left:5px;
+padding-top:5px;
+font-weight:bolder;
+font-size:14px;
+}
+#homebutton2 {
+background-color:#C49320;s
+height:21px;
+width:205px;
+border-bottom-style:dotted;
+border-bottom-width:thin;
+border-top-style:dotted;
+border-top-width:0px;
+padding-left:5px;
+padding-top:5px;
+font-weight:bolder;
+font-size:14px;
+}
+#homebutton:hover {
+background-color:#DCBF66;
+}
+
+.linksectiontitle {
+height:21px;
+width:200px;
+border-bottom-style:dotted;
+border-bottom-width:thin;
+padding-left:10px;
+padding-top:5px;
+font-weight:bold;
+font-size:14px;
+}
+
+.linkbutton {
+background-color:#EBDB93;
+height:21px;
+width:195px;
+border-bottom-style:dotted;
+border-bottom-width:thin;
+padding-left:15px;
+padding-top:5px;
+font-size:12px;
+}
+
+.linkbutton:hover {
+background-color:#F3E8B7;
+}
+
+.linkbutton2 {
+background-color:#EBDB93;
+height:42px;
+width:195px;
+border-bottom-style:dotted;
+border-bottom-width:thin;
+padding-left:15px;
+padding-top:5px;
+font-size:12px;
+}
+
+.linkbutton2:hover {
+background-color:#F3E8B7;
+}
+
+/* Central Content */
+
+.maintext {
+margin-left:210px;
+padding-left:5px;
+padding-right:5px;
+height: 100%;
+}
+
+.productad {
+background-color:#89B633;
+width:440px;
+border-style:dotted;
+border-width:thin;
+padding:10px;
+margin-bottom:60px;
+}
+
+.prodtext {
+padding-top:5px;
+}
+
+.prodimg {
+background-color:#79A22A;
+border-color:#546F1F;
+padding:5px;
+border-style:solid;
+border-width:thin;
+}
+
+.blackprice {
+font-weight:bolder;
+text-decoration:line-through;
+}
+
+.redtext {
+font-weight:bolder;
+color:#990000
+}
+
+/* Quiz Board */
+
+#quizboard {
+width:327px;
+height:143px;
+position:absolute;
+top:130px;
+left:3%;
+z-index: 5;
+}
+
+/* Footer */
+
+#footercont {
+background-color:#79A22A;
+height:20px;
+width:1000px;
+text-align:center;
+padding-top: 5px;
+position:relative;
+left:10%;
+margin-top:0px;
+}
+
+.footertext {
+color:white;
+}
+
+.spacer {
+height:20px;
+}
+
+#footerbottom {
+background-color: #638919;
+background-repeat:no-repeat;
+height:31px;
+width:1000px;
+position:relative;
+left:10%;
+}
+
+
+.rows {
+  margin: auto;
+  padding: 0;
+  
+  border:1px solid #eee;
+  border-collapse: collapse;
+}
+.rows thead {
+	padding: 5px 0 5px 0;
+	background: #638919;
+  color: #fff;
+}
+.rows th, .rows td {
+  vertical-align: top;
+}
+.rows tr th {
+  letter-spacing: 1px;
+  text-align: left;
+  white-space: nowrap;
+  padding: 0;
+}
+.rows tr td {
+  padding: 10px 5px;      
+}
+.rows .even td {
+  background: #eee;
+}
+
+

@@ -1,0 +1,909 @@
+﻿<!DOCTYPE html><html lang="en-GB" dir="ltr"><head><link href="typescript-tutorial.html" rel="canonical"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="IE=edge"><link rel="icon" type="image/x-icon" href="/images/logo/favicon1.ico"><meta charset="utf-8"><base href="https://www.guru99.com/typescript-tutorial.html"><meta name="keywords" content="javascript, java"><meta name="description" content="TypeScript is an open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript, and adds optional static typing to the language. TypeScript "><title>TypeScript Tutorial: Types, Arrays, Enum, Classes, Interfaces</title><link rel="stylesheet" href="media\plg_jchoptimize\cache\css\7e7bbf01400ae8aed7bc4bb5253400e8_0.css"> <script src="media\jui\js\jquery.min.js?5488b7157d1881abf266d97c2f1147c2"></script> <!--[if IE 8]>
+<link rel="stylesheet" href="https://www.guru99.com/modules/mod_relateditems_xtd/assets/css/ie8.css" />
+<![endif]--> <!--[if (gte IE 8)&(lte IE 9)]>
+        <script type="text/javascript" src="/media/gantry5/assets/js/html5shiv-printshiv.min.js"></script>
+        <link rel="stylesheet" href="/media/gantry5/engines/nucleus/css/nucleus-ie9.css" type="text/css"/>
+        <script type="text/javascript" src="/media/gantry5/assets/js/matchmedia.polyfill.js"></script>
+        <![endif]--><meta name="theme-color" content="#2cbaff"> <script async="async" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script> <script>var googletag=window.googletag||{cmd:[]};var gptadslots=[];var googletag=googletag||{cmd:[]};</script> <script src="//fdyn.pubwise.io/script/8e8b7267-5938-41ec-b047-b7e985fc9645/v3/dyn/pre_pws.js?type=default"></script> <script src="//fdyn.pubwise.io/script/8e8b7267-5938-41ec-b047-b7e985fc9645/v3/dyn/pws.js?type=default" async=""></script> <script>!function(a9,a,p,s,t,A,g){if(a[a9])return;function q(c,r){a[a9]._Q.push([c,r])}a[a9]={init:function(){q("i",arguments)},fetchBids:function(){q("f",arguments)},setDisplayBids:function(){},targetingKeys:function(){return[]},_Q:[]};A=p.createElement(s);A.async=!0;A.src=t;g=p.getElementsByTagName(s)[0];g.parentNode.insertBefore(A,g)}("apstag",window,document,"script","//c.amazon-adsystem.com/aax2/apstag.js");apstag.init({pubID:'0b8b4efb-a0ed-455f-9ba8-517e0c56bb55',adServer:'googletag',simplerGPT:true});googletag.cmd.push(function(){googletag.pubads().setRequestNonPersonalizedAds(0);googletag.pubads().collapseEmptyDivs(true);var mapping1=googletag.sizeMapping().addSize([1700,400],['fluid',[970,90],[970,250],[728,90]]).addSize([1024,0],[[728,90],[250,250],[336,280],[300,250]]).addSize([500,0],[[468,60],[250,250],[300,250],[336,280]]).addSize([0,0],[[320,50],[300,250],[300,50],[320,100],[250,250]]).build();var mapping2=googletag.sizeMapping().addSize([1024,0],['fluid',[336,280],[300,250],[250,250]]).addSize([500,0],[[300,250],[336,280],[250,250]]).addSize([0,0],[[320,50],[300,250],[300,50],[320,100],[250,250]]).build();var mapping3=googletag.sizeMapping().addSize([1024,0],[[300,600],[120,600],[160,600],[300,250],[336,280],[250,250]]).addSize([500,0],[[160,600],[120,600],[250,250]]).addSize([0,0],[]).build();var mapping4=googletag.sizeMapping().addSize([1024,0],[]).addSize([0,0],[[320,50],[300,50],[360,50],[400,50]]).build();gptadslots.push(googletag.defineSlot('/24132379/guru99.com_728x90','fluid','div-gpt-ad-9092914-1').setTargeting('type',['sponsored']).setTargeting('Position',['top']).setTargeting('refreshtime',['30']).defineSizeMapping(mapping1).addService(googletag.pubads()));gptadslots.push(googletag.defineSlot('/24132379/guru99.com_728x90','fluid','div-gpt-ad-9092914-2').setTargeting('type',['sponsored']).setTargeting('Position',['middle']).setTargeting('refreshtime',['30']).defineSizeMapping(mapping1).addService(googletag.pubads()));gptadslots.push(googletag.defineSlot('/24132379/guru99.com_728x90','fluid','div-gpt-ad-9092914-6').setTargeting('type',['sponsored']).setTargeting('Position',['bottom']).setTargeting('refreshtime',['30']).defineSizeMapping(mapping1).addService(googletag.pubads()));var REFRESH_KEY='refresh';var REFRESH_VALUE='true';googletag.defineSlot('/24132379/guru99.com_300x600_sticky',[[300,600],[120,600],[160,600],[300,250],[336,280],[250,250]],'div-gpt-ad-1543194583199-0').setTargeting(REFRESH_KEY,REFRESH_VALUE).setTargeting('refreshtime',['30']).defineSizeMapping(mapping3).addService(googletag.pubads());gptadslots.push(googletag.defineSlot('/24132379/guru99.com_300x250_2','fluid','div-gpt-ad-1565016699961-0').setTargeting('type',['sponsored']).setTargeting('Position',['300x250']).setTargeting(REFRESH_KEY,REFRESH_VALUE).setTargeting('refreshtime',['30']).defineSizeMapping(mapping2).addService(googletag.pubads()));gptadslots.push(googletag.defineSlot('/24132379/guru99.com_300x250_1',[[336,280],[300,250],[250,250]],'div-gpt-ad-1571916596507-0').setTargeting('type',['sponsored']).setTargeting('Position',['300x250']).setTargeting(REFRESH_KEY,REFRESH_VALUE).setTargeting('refreshtime',['30']).defineSizeMapping(mapping2).addService(googletag.pubads()));gptadslots.push(googletag.defineSlot('/24132379/guru99.com_300x250-2',[[300,250],[336,280],[250,250]],'div-gpt-ad-1571916546153-0').setTargeting('type',['sponsored']).setTargeting('Position',['300x250']).setTargeting(REFRESH_KEY,REFRESH_VALUE).setTargeting('refreshtime',['30']).defineSizeMapping(mapping2).addService(googletag.pubads()));var REFRESH_KEY='refresh';var REFRESH_VALUE='true';googletag.defineSlot('/24132379/Guru99.com_Adhesion_320x50',[[320,50],[300,50],[360,50],[400,50]],'div-gpt-ad-1558594248952-0').setTargeting(REFRESH_KEY,REFRESH_VALUE).setTargeting('refreshtime',['30']).defineSizeMapping(mapping4).addService(googletag.pubads());var SECONDS_TO_WAIT_AFTER_VIEWABILITY=30;googletag.pubads().addEventListener('impressionViewable',function(event){var slot=event.slot;if(slot.getTargeting(REFRESH_KEY).indexOf(REFRESH_VALUE)>-1){setTimeout(function(){pubwiseLazyLoad([slot]);},SECONDS_TO_WAIT_AFTER_VIEWABILITY*1000);}});apstag.fetchBids({timeout:1e3},function(bids){apstag.setDisplayBids();});googletag.enableServices();});</script> </head><body class="gantry site com_content view-article no-layout no-task dir-ltr itemid-2047 outline-9 g-offcanvas-left g-default g-style-preset4"><div id="g-offcanvas" data-g-offcanvas-swipe="0" data-g-offcanvas-css3="1"><div class="g-grid"><div class="g-block size-100"><div id="mobile-menu-7951-particle" class="g-content g-particle"><div id="g-mobilemenu-container" data-g-menu-breakpoint="48rem"></div></div></div></div></div><div id="g-page-surround"><div class="g-offcanvas-hide g-offcanvas-toggle" role="navigation" data-offcanvas-toggle="" aria-controls="g-offcanvas" aria-expanded="false"><i class="fa fa-fw fa-bars"></i></div><section id="g-top"><div class="g-container"><div class="g-grid"><div class="g-block size-100"><div class="g-system-messages"><div id="system-message-container"> </div> </div> </div> </div> </div> </section><section id="g-navigation" class="g-default-navigation"><div class="g-container"><div class="g-grid"><div class="g-block size-20"><div id="logo-8099-particle" class="g-content g-particle"> <a href="index.htm" target="_self" title="Guru99" aria-label="Guru99" rel="home" class="g-logo"> <img src="/images/logo/logo_v1.png" alt="Guru99"> </a> </div></div><div class="g-block size-80"><div id="menu-5760-particle" class="g-content g-particle"> <nav class="g-main-nav" data-g-hover-expand="true"><ul class="g-toplevel"> <li class="g-menu-item g-menu-item-type-component g-menu-item-101 g-standard  "> <a class="g-menu-item-container" href="index.htm"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Home</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-separator g-menu-item-118 g-parent g-fullwidth  " style="position: relative;"><div class="g-menu-item-container" data-g-menuparent=""> <span class="g-separator g-menu-item-content"> <span class="g-menu-item-title">Testing</span> </span> <span class="g-menu-parent-indicator"></span> </div><ul class="g-dropdown g-inactive g-fade g-dropdown-center" style="width:560px;" data-g-item-width="560px"> <li class="g-dropdown-column"><div class="g-grid"><div class="g-block size-32"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1189  "> <a class="g-menu-item-container" href="agile-testing-course.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Agile Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1103  "> <a class="g-menu-item-container" href="bugzilla-tutorial-for-beginners.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">BugZilla</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-962  "> <a class="g-menu-item-container" href="cucumber-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Cucumber</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-892  "> <a class="g-menu-item-container" href="data-testing.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Database Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-890  "> <a class="g-menu-item-container" href="utlimate-guide-etl-datawarehouse-testing.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">ETL Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-123  "> <a class="g-menu-item-container" href="jmeter-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Jmeter </span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1102  "> <a class="g-menu-item-container" href="jira-tutorial-a-complete-guide-for-beginners.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">JIRA</span> </span> </a> </li> </ul> </div><div class="g-block size-34"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1331  "> <a class="g-menu-item-container" href="junit-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">JUnit</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1032  "> <a class="g-menu-item-container" href="loadrunner-v12-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">LoadRunner</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-119  "> <a class="g-menu-item-container" href="software-testing.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title"> Manual Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-126  "> <a class="g-menu-item-container" href="mobile-testing.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Mobile Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1104  "> <a class="g-menu-item-container" href="mantis-bug-tracker-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Mantis</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2360  "> <a class="g-menu-item-container" href="postman-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Postman</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-120  "> <a class="g-menu-item-container" href="quick-test-professional-qtp-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">QTP</span> </span> </a> </li> </ul> </div><div class="g-block size-34"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-977  "> <a class="g-menu-item-container" href="hp-alm-free-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Quality Center (ALM)</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2237  "> <a class="g-menu-item-container" href="robotic-process-automation-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">RPA</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-891  "> <a class="g-menu-item-container" href="learn-sap-testing-create-your-first-sap-test-case.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SAP Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-121  "> <a class="g-menu-item-container" href="selenium-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title"> Selenium</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1073  "> <a class="g-menu-item-container" href="soapui-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SoapUI</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-871  "> <a class="g-menu-item-container" href="test-management.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Test Management</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1105  "> <a class="g-menu-item-container" href="testlink-tutorial-complete-guide.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">TestLink</span> </span> </a> </li> </ul> </div> </div> </li> </ul> </li> <li class="g-menu-item g-menu-item-type-separator g-menu-item-147 g-parent g-fullwidth  " style="position: relative;"><div class="g-menu-item-container" data-g-menuparent=""> <span class="g-separator g-menu-item-content"> <span class="g-menu-item-title">SAP</span> </span> <span class="g-menu-parent-indicator"></span> </div><ul class="g-dropdown g-inactive g-fade g-dropdown-center" style="width:480px;" data-g-item-width="480px"> <li class="g-dropdown-column"><div class="g-grid"><div class="g-block size-30"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-148  "> <a class="g-menu-item-container" href="abap-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">ABAP</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2555  "> <a class="g-menu-item-container" href="overview-of-sap-apo.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">APO</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-619  "> <a class="g-menu-item-container" href="what-is-sap.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Beginner</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-151  "> <a class="g-menu-item-container" href="sap-basis-training-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Basis</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2574  "> <a class="g-menu-item-container" href="sap-bods-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">BODS</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-915  "> <a class="g-menu-item-container" href="sap-bi.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">BI</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2461  "> <a class="g-menu-item-container" href="sap-bpc.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">BPC</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-240  "> <a class="g-menu-item-container" href="co-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">CO</span> </span> </a> </li> </ul> </div><div class="g-block size-33"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-161  "> <a class="g-menu-item-container" href="sap-crm-training.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">CRM</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2628  "> <a class="g-menu-item-container" href="crystal-reports-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Crystal Reports</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-150  "> <a class="g-menu-item-container" href="sap-fico-training-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">FICO</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1326  "> <a class="g-menu-item-container" href="sap-hana-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">HANA</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-149  "> <a class="g-menu-item-container" href="sap-hcm.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">HR</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-162  "> <a class="g-menu-item-container" href="sap-mm-training-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">MM</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1340  "> <a class="g-menu-item-container" href="sap-quality-management-qm-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">QM</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-241  "> <a class="g-menu-item-container" href="sap-payroll.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Payroll</span> </span> </a> </li> </ul> </div><div class="g-block size-37"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2448  "> <a class="g-menu-item-container" href="sap-pi-process-integration-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">PI/PO</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1281  "> <a class="g-menu-item-container" href="sap-pp-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">PP</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-152  "> <a class="g-menu-item-container" href="free-sap-sd-training-course.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SD</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2449  "> <a class="g-menu-item-container" href="sapui5-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SAPUI5</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2462  "> <a class="g-menu-item-container" href="overview-of-sap-security.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Security</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2463  "> <a class="g-menu-item-container" href="overview-of-sap-solution-manager.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Solution Manager</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2786  "> <a class="g-menu-item-container" href="sap-successfactor.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Successfactors</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1803  "> <a class="g-menu-item-container" href="sap-training-hub.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SAP Tutorials</span> </span> </a> </li> </ul> </div> </div> </li> </ul> </li> <li class="g-menu-item g-menu-item-type-separator g-menu-item-127 g-parent g-fullwidth  " style="position: relative;"><div class="g-menu-item-container" data-g-menuparent=""> <span class="g-separator g-menu-item-content"> <span class="g-menu-item-title">Web</span> </span> <span class="g-menu-parent-indicator"></span> </div><ul class="g-dropdown g-inactive g-fade g-dropdown-center" style="width:560px;" data-g-item-width="560px"> <li class="g-dropdown-column"><div class="g-grid"><div class="g-block size-25"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-870  "> <a class="g-menu-item-container" href="apache.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Apache</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2101  "> <a class="g-menu-item-container" href="android-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Android</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1361  "> <a class="g-menu-item-container" href="angularjs-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">AngularJS</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1540  "> <a class="g-menu-item-container" href="asp-net-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">ASP.Net</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2126  "> <a class="g-menu-item-container" href="c-programming-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">C</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1518  "> <a class="g-menu-item-container" href="c-sharp-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">C#</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2554  "> <a class="g-menu-item-container" href="cpp-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">C++</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1937  "> <a class="g-menu-item-container" href="codeigniter-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">CodeIgniter</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2313  "> <a class="g-menu-item-container" href="dbms-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">DBMS</span> </span> </a> </li> </ul> </div><div class="g-block size-25"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-146  "> <a class="g-menu-item-container" href="java-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Java</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-884  "> <a class="g-menu-item-container" href="interactive-javascript-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">JavaScript</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1328  "> <a class="g-menu-item-container" href="jsp-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">JSP</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2824  "> <a class="g-menu-item-container" href="kotlin-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Kotlin</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-131  "> <a class="g-menu-item-container" href="unix-linux-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Linux</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2648  "> <a class="g-menu-item-container" href="mariadb-tutorial-install.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">MariaDB</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2634  "> <a class="g-menu-item-container" href="ms-access-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">MS Access</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1645  "> <a class="g-menu-item-container" href="mysql-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">MYSQL</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1370  "> <a class="g-menu-item-container" href="node-js-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Node.js</span> </span> </a> </li> </ul> </div><div class="g-block size-25"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-129  "> <a class="g-menu-item-container" href="perl-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Perl</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-128  "> <a class="g-menu-item-container" href="php-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">PHP</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1306  "> <a class="g-menu-item-container" href="pl-sql-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">PL/SQL</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1940  "> <a class="g-menu-item-container" href="postgresql-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">PostgreSQL</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1215  "> <a class="g-menu-item-container" href="python-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Python</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2736  "> <a class="g-menu-item-container" href="reactjs-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">ReactJS</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2689  "> <a class="g-menu-item-container" href="ruby-on-rails-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Ruby &amp; Rails</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2737  "> <a class="g-menu-item-container" href="scala-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Scala</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-130  "> <a class="g-menu-item-container" href="sql.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SQL</span> </span> </a> </li> </ul> </div><div class="g-block size-25"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2024  "> <a class="g-menu-item-container" href="ms-sql-server-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SQL Server</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1330  "> <a class="g-menu-item-container" href="sqlite-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SQLite</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2614  "> <a class="g-menu-item-container" href="uml-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">UML</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2031  "> <a class="g-menu-item-container" href="vb-net-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">VB.Net</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-808  "> <a class="g-menu-item-container" href="vbscript-tutorials-for-beginners.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">VBScript</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1470  "> <a class="g-menu-item-container" href="web-services-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Web Services</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2630  "> <a class="g-menu-item-container" href="wpf-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">WPF</span> </span> </a> </li> </ul> </div> </div> </li> </ul> </li> <li class="g-menu-item g-menu-item-type-separator g-menu-item-844 g-parent g-fullwidth  " style="position: relative;"><div class="g-menu-item-container" data-g-menuparent=""> <span class="g-separator g-menu-item-content"> <span class="g-menu-item-title">Must Learn!</span> </span> <span class="g-menu-parent-indicator"></span> </div><ul class="g-dropdown g-inactive g-fade g-dropdown-center" style="width:540px;" data-g-item-width="540px"> <li class="g-dropdown-column"><div class="g-grid"><div class="g-block size-34"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-133  "> <a class="g-menu-item-container" href="accounting.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Accounting</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2082  "> <a class="g-menu-item-container" href="design-analysis-algorithms-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Algorithms</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2426  "> <a class="g-menu-item-container" href="blockchain-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Blockchain</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1190  "> <a class="g-menu-item-container" href="business-analyst-tutorial-course.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Business Analyst</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2778  "> <a class="g-menu-item-container" href="best-domain-name-generators.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Build Website</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1541  "> <a class="g-menu-item-container" href="introduction-ccna.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">CCNA</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-916  "> <a class="g-menu-item-container" href="cloud-computing-for-beginners.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Cloud Computing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-3002  "> <a class="g-menu-item-container" href="learn-cobol-programming-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">COBOL</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1921  "> <a class="g-menu-item-container" href="compiler-design-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Compiler Design</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2790  "> <a class="g-menu-item-container" href="embedded-systems-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Embedded Systems</span> </span> </a> </li> </ul> </div><div class="g-block size-31"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-845  "> <a class="g-menu-item-container" href="ethical-hacking-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Ethical Hacking</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1135  "> <a class="g-menu-item-container" href="excel-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Excel Tutorials</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2450  "> <a class="g-menu-item-container" href="google-go-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Go Programming</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2807  "> <a class="g-menu-item-container" href="iot-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">IoT</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-3003  "> <a class="g-menu-item-container" href="itil-framework-process.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">ITIL</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1935  "> <a class="g-menu-item-container" href="jenkins-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Jenkins</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1332  "> <a class="g-menu-item-container" href="mis-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">MIS</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2043  "> <a class="g-menu-item-container" href="data-communication-computer-network-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Networking</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2631  "> <a class="g-menu-item-container" href="operating-system-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Operating System</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2979  "> <a class="g-menu-item-container" href="free-online-course-with-certificate.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Prep</span> </span> </a> </li> </ul> </div><div class="g-block size-35"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1329  "> <a class="g-menu-item-container" href="pmp-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">PMP</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-933  "> <a class="g-menu-item-container" href="photoshop-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Photoshop</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1256  "> <a class="g-menu-item-container" href="project-management-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Project Management</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2464  "> <a class="g-menu-item-container" href="best-hard-disks.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Reviews</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2787  "> <a class="g-menu-item-container" href="salesforce-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Salesforce</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2825  "> <a class="g-menu-item-container" href="seo-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SEO</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2054  "> <a class="g-menu-item-container" href="software-engineering-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Software Engineering</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1333  "> <a class="g-menu-item-container" href="vba-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">VBA</span> </span> </a> </li> </ul> </div> </div> </li> </ul> </li> <li class="g-menu-item g-menu-item-type-separator g-menu-item-1400 g-parent g-fullwidth  " style="position: relative;"><div class="g-menu-item-container" data-g-menuparent=""> <span class="g-separator g-menu-item-content"> <span class="g-menu-item-title">Big Data</span> </span> <span class="g-menu-parent-indicator"></span> </div><ul class="g-dropdown g-inactive g-fade g-dropdown-center" style="width:450px;" data-g-item-width="450px"> <li class="g-dropdown-column"><div class="g-grid"><div class="g-block size-38"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1474  "> <a class="g-menu-item-container" href="aws-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">AWS</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-963  "> <a class="g-menu-item-container" href="bigdata-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">BigData</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1327  "> <a class="g-menu-item-container" href="cassandra-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Cassandra</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2806  "> <a class="g-menu-item-container" href="cognos-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Cognos</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1898  "> <a class="g-menu-item-container" href="data-warehousing-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Data Warehousing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2200  "> <a class="g-menu-item-container" href="devops-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">DevOps</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1289  "> <a class="g-menu-item-container" href="hbase-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">HBase</span> </span> </a> </li> </ul> </div><div class="g-block size-32"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1321  "> <a class="g-menu-item-container" href="hive-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Hive</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1245  "> <a class="g-menu-item-container" href="informatica-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Informatica</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2805  "> <a class="g-menu-item-container" href="microstrategy-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">MicroStrategy</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1314  "> <a class="g-menu-item-container" href="mongodb-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">MongoDB</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2556  "> <a class="g-menu-item-container" href="apache-nifi-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">NiFi</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2803  "> <a class="g-menu-item-container" href="obiee-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">OBIEE</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2802  "> <a class="g-menu-item-container" href="pentaho-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Pentaho</span> </span> </a> </li> </ul> </div><div class="g-block size-30"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2795  "> <a class="g-menu-item-container" href="power-bi-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Power BI</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2804  "> <a class="g-menu-item-container" href="qlikview-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Qlikview</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1942  "> <a class="g-menu-item-container" href="tableau-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Tableau</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2471  "> <a class="g-menu-item-container" href="talend-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Talend</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2557  "> <a class="g-menu-item-container" href="zookeeper-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">ZooKeeper</span> </span> </a> </li> </ul> </div> </div> </li> </ul> </li> <li class="g-menu-item g-menu-item-type-separator g-menu-item-508 g-parent g-fullwidth  " style="position: relative;"><div class="g-menu-item-container" data-g-menuparent=""> <span class="g-separator g-menu-item-content"> <span class="g-menu-item-title">Live Projects</span> </span> <span class="g-menu-parent-indicator"></span> </div><ul class="g-dropdown g-inactive g-fade g-dropdown-center" style="width:400px;" data-g-item-width="400px"> <li class="g-dropdown-column"><div class="g-grid"><div class="g-block size-50"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1043  "> <a class="g-menu-item-container" href="live-agile-testing-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Agile Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-995  "> <a class="g-menu-item-container" href="live-interactive-exercise-hp-alm.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live HP ALM</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1879  "> <a class="g-menu-item-container" href="live-java-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Java Project</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1194  "> <a class="g-menu-item-container" href="live-mobile-testing-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Mobile Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1768  "> <a class="g-menu-item-container" href="live-payment-gateway-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Payment Gateway</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-937  "> <a class="g-menu-item-container" href="live-php-project-learn-complete-web-development-cycle.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live PHP Project</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1802  "> <a class="g-menu-item-container" href="live-projects.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Projects Hub</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2776  "> <a class="g-menu-item-container" href="live-python-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Python Project</span> </span> </a> </li> </ul> </div><div class="g-block size-50"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-887  "> <a class="g-menu-item-container" href="live-selenium-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Selenium Project</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1060  "> <a class="g-menu-item-container" href="live-ecommerce-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Selenium 2</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1046  "> <a class="g-menu-item-container" href="live-penetration-testing-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Security Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-758  "> <a class="g-menu-item-container" href="live-testing-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Testing Project</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1195  "> <a class="g-menu-item-container" href="live-insurance-testing-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Testing 2</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1769  "> <a class="g-menu-item-container" href="live-telecom-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Telecom</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-964  "> <a class="g-menu-item-container" href="live-uft-testing.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live UFT/QTP Testing</span> </span> </a> </li> </ul> </div> </div> </li> </ul> </li> <li class="g-menu-item g-menu-item-type-separator g-menu-item-2316 g-parent g-fullwidth  " style="position: relative;"><div class="g-menu-item-container" data-g-menuparent=""> <span class="g-separator g-menu-item-content"> <span class="g-menu-item-title">AI</span> </span> <span class="g-menu-parent-indicator"></span> </div><ul class="g-dropdown g-inactive g-fade g-dropdown-center" style="width:360px;" data-g-item-width="360px"> <li class="g-dropdown-column"><div class="g-grid"><div class="g-block size-52"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2032  "> <a class="g-menu-item-container" href="artificial-intelligence-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Artificial Intelligence</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2546  "> <a class="g-menu-item-container" href="data-science-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Data Science</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2324  "> <a class="g-menu-item-container" href="keras-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Keras</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2303  "> <a class="g-menu-item-container" href="nltk-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">NLTK</span> </span> </a> </li> </ul> </div><div class="g-block size-48"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2061  "> <a class="g-menu-item-container" href="numpy-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">NumPy</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2551  "> <a class="g-menu-item-container" href="pytorch-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">PyTorch</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1941  "> <a class="g-menu-item-container" href="r-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">R Programming</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1909  "> <a class="g-menu-item-container" href="tensorflow-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">TensorFlow</span> </span> </a> </li> </ul> </div> </div> </li> </ul> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-134 g-standard  "> <a class="g-menu-item-container" href="blog\index.htm"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Blog</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-particle g-menu-item---module-p44Zi g-standard  "><div class="g-menu-item-container" data-g-menuparent=""><div class="menu-item-particle"><div class="platform-content"><div class="moduletable "><div class="custom"><div id="gsearch"> <gcse:search></gcse:search> </div> </div> </div></div></div></div></li> </ul> </nav> </div> </div> </div> </div> </section><section id="g-container-main" class="g-wrapper"><div class="g-grid"><div class="g-block size-75"> <main id="g-mainbar"><div class="g-grid"><div class="g-block size-100"><div class="g-content"><div class="platform-content row-fluid"><div class="span12"><div class="item-page" itemscope="" itemtype="https://schema.org/Article"><meta itemprop="inLanguage" content="en-GB"><div class="page-header"><h1 itemprop="headline"> TypeScript Tutorial: Types, Arrays, Enum, Classes, Interfaces </h1></div><dl class="article-info muted"> <dt class="article-info-term"> Details </dt><dd class="modified"> <span class="icon-calendar" aria-hidden="true"></span> <time datetime="2020-03-20T19:20:23+05:30" itemprop="dateModified"> Last Updated: 20 March 2020 </time> </dd> </dl><div itemprop="articleBody"><div><div style="float:left;padding-right:6px;" class="top-ads-boxes"><div id="div-gpt-ad-1565016699961-0"> <script>googletag.cmd.push(function(){googletag.display('div-gpt-ad-1565016699961-0');});</script> </div> </div></div><h2><a id="1"></a>What is Typescript?</h2><p>Typescript is a superset of JavaScript. It is an open source language developed by Microsoft which statically compiles the code to JavaScript that can easily run in a browser or in Nodejs. <p>All the latest features released for ECMAScript are supported in typescript and in addition to it Typescript has its own object-oriented features like interfaces, ambient declaration, class inheritance, etc. which helps in developing a large application which otherwise would be difficult to do in JavaScript. <p>In this beginners tutorial, you will learn: <ul> <li><a href="#1">What is Typescript? </a></li> <li><a href="#2">How to Download and Install TypeScript </a> </li> <li><a href="#3">Variables in TypeScript </a> </li> <li><a href="#4">Types in Typescript </a> </li> <li><a href="#5">What is an Array? </a> </li> <li><a href="#6">Typescript Array Methods </a> </li> <li><a href="#7">Defining a Class in TypeScript </a> </li> <li><a href="#8">Access Modifiers in Typescript </a> </li> <li><a href="#9">Interface in TypeScript </a> </li> <li><a href="#10">Functions in Typescript </a> </li> <li><a href="#11">What is an Enum? </a> </li> <li><a href="#12">What are the Modules in Typescript? </a> </li> <li><a href="#13">Namespaces in Typescript </a> </li> <li><a href="#14">Ambient Declarations in Typescript </a> </li> <li><a href="#15">Typescript History </a> </li> <li><a href="#16">Why use Typescript? </a> </li> <li><a href="#17">Who uses Typescript? </a> </li> </ul><h2><a id="2"></a>How to Download and Install TypeScript:</h2><p>Go to the official site of nodejs : <a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a> and download and install nodejs as per your operating system. The detailed instruction on how to download nodejs is available here: <a href="download-install-node-js.html">https://www.guru99.com/download-install-node-js.html</a> <p>To check if nodejs and npm is installed just check the version in your command prompt. <pre>
+D:\typeproject>node --version
+V10.15.1
+
+D:\typeproject>npm --version
+6.4.1
+</pre><p>So you have nodejs v10 and npm 6 installed. <h4>Typescript Installation</h4><p>Create your project directory typeproject/ and run npm init, as shown in the command below: <pre>
+npm init
+</pre><p> This will create package.json which will have the store the dependencies for our project. <p>Once done install typescript as follows: <pre>
+npm -g install typescript
+</pre><p>The above command will take care of installing typescript. Adding "-g" to npm install will install typescript globally. The advantage of using -g is that you will be able to use typescript <strong>tsc</strong> command from any directory as it is installed globally. In case you don't want to install typescript globally use below command: <pre>
+npm --save install typescript
+</pre><p>Create src/ folder in your project directory and in src/ folder create typescript file test.ts and write your code. For example: <p>Example : test.ts <pre>
+function add(x:number, y:number) {
+	return x+y;
+}
+
+let sum = add(5,10);
+console.log(sum);
+</pre><h4>Compile Typescript code to Javascript</h4><p>To compile above code use following command: <p>If typescript is installed globally use below command: <pre>
+tsc test.ts
+</pre><p>If typescript is installed local to your project you need to use the path of typescript from node_modules as shown:<div><div id="div-gpt-ad-9092914-1"> <script>googletag.cmd.push(function(){googletag.display('div-gpt-ad-9092914-1');});</script> </div> </div> <pre>
+node_modules/typescript/bin/tsc test.ts
+</pre><p>The above command will create a test.js file and will be have code compiled to javascript. <p>Example : test.js <pre>
+function add(x, y) {
+    return x + y;
+}
+var sum = add(5, 10);
+console.log(sum);
+</pre><h3>Execute Javascript using Nodejs</h3><p>You can execute test.js in nodejs as follows: <pre>
+D:\typeproject\src&gt;node test.js
+15
+</pre><p>The value consoled is displayed on the execution of test.js <p>Execute JavaScript in Browser <p><strong>Example:</strong> <pre>
+&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;script type="text/javascript" src="/test.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre><p style="text-align: center;"><a href="/images/1/060719_0536_TypeScriptT1.png" class="jh-image-popup-colorbox"><img src="/images/1/060719_0536_TypeScriptT1.png" alt=""></a> <h3>Compile Typescript code to Javascript using EcmaScript version</h3><p>Typescript supports all the Ecmascript features released, and developers can use the same while coding. But not all the new features support on older browsers, due to which you need to compile javascript to an older version of Ecmascript. Typescript provides compiler options which can do so. <p>Example : test.ts <pre>
+var addnumbers = (a, b) =&gt; {
+    return a+b;
+}
+
+addnumbers(10, 20);
+</pre><p>To compile to the ES version of your choice, you can use the target or t option in your command as follows: <pre>
+tsc --target ES6  test.ts
+
+OR
+
+tsc -t ES6 test.ts
+</pre><p>By default, the target is ES3.In case you want to change it, you can use the above command. <p>At present you will use ES6 as the target : <pre>
+tsc --target ES6  test.ts
+</pre><p>test.ts to test.js <pre>
+var addnumbers = (a, b) => {
+    return a+b;
+}
+
+addnumbers(10, 20);
+</pre><p>The code remains as it is, as the arrow function you have used is a ES6 feature and the same when compiled to ES6 is not changed. <p>By default the target is ES3 so without target you get test.js as : <pre>
+var addnumbers = function (a, b) {
+    return a + b;
+};
+addnumbers(10, 20);
+</pre><p>So over here, the fat arrow is changed to a normal anonymous function. <h2><a id="3"></a>Variables in TypeScript</h2><p>Variables are used to store values, and the value can be a string, number, Boolean, or an expression. When it comes to variables in Typescript, they are similar to JavaScript. So let's learn to declare and assign value to variables in Typescript. <p>Variables cannot be used in code without defining. To declare a variable you can use <p><strong>var </strong>keyword, <div><div id="div-gpt-ad-9092914-2"> <script>googletag.cmd.push(function(){googletag.display('div-gpt-ad-9092914-2');});</script> </div> </div><p><strong>let</strong> keyword <p><strong>const</strong> keyword <p>Working with variables in typescript is similar to javascript, and users familiar with javascript will find it very easy. Only variables like <strong>let </strong>and <strong>const </strong>are not much used in comparison to <strong>var</strong>. <h3>Declaring variables using var</h3><p><strong>Syntax:</strong> <pre>
+var firstname = "Roy";
+</pre><p>Let us take a look at few examples to understand the working of var keyword and also the scope of variables declared using <strong>var </strong>keyword. <p><strong>Example 1:</strong> <pre>
+var  k = 1; // variable k will have a global scope
+
+function test() {
+    var c = 1; // variable c is local variable and will be accessible inside function test, it will not be available outside the function.
+    return k++;
+}
+
+test(); // output as  1
+test(); // output as 2
+alert(c); // will throw error , Uncaught ReferenceError: c is not defined
+</pre><p><strong>Example 2: </strong> <pre>
+var t = 0; // variable t is declared in global scope.
+function test() {    
+    var t = 10; //variable t is again redeclared inside function with value 10, so here t is local to the function and changes done to it will remain inside the function.
+    return t;
+}
+test(); // will return 10.
+console.log(t); // will console 0.
+</pre><p><strong>Example 3:</strong> <pre>
+var i = 0;
+function test() {
+    if (i>0) {
+      var t = 1;
+    }
+    return t;
+}
+
+test(); // the value returned will be undefined. The if-block has the variable which gets executed when I> 0. Over here the if-block is not expected but you are still having a reference to the variable t, and it returns undefined, this is because var defined variables once defined inside a function will have reference to it inside the function.  
+i++; // here value of i is incremented.
+test(); // since i >0 the if block is executed and value returned is 1.
+</pre><h4>Declaring variables using let</h4><p>The syntax for let is as given below: <p><strong>Syntax:</strong> <pre>
+let name="Roy";
+</pre><p>The working of <strong>let </strong>variable is almost same as <strong>var</strong>, but with a small difference and will understand the same using an example. <p><strong>Example:</strong> <pre>
+let i = 1;
+function test() {
+    if (i>0) {
+	  let t = 1;
+    }
+    return t;
+}
+
+test(); // throws an error : Uncaught ReferenceError: t is not defined. 
+</pre><p>Above example throws an error, but the same would have worked fine if it was with the <strong>var </strong>keyword. Variables using <strong>let </strong>are available within the block scope declared, for example, the variable t is available only inside the if-block and not to the entire function. <p>Also if you happen to declare a variable inside any function, or for-loop, while-loop, switch block, it will be available to you only inside that block and no reference to it outside the block, and it will throw an error if the variable is used outside the block. This is the main difference between var and let keyword declared variables. <h4>Declaring variables using const</h4><p>Const means constant variables. They are similar to let variables, with the only difference, is that once a value is assigned to it cannot be changed. <p><strong>Syntax:</strong> <pre>
+const name;
+</pre><p><strong>Example:</strong> <pre>
+const age = "25"; 
+age="30"; // will throw an error : Uncaught TypeError: Assignment to constant variable.
+</pre><p>So users can use const variables only in cases when they know they don't have to change the values assigned to it. <h2><a id="4"></a>Types in Typescript</h2><p>Typescript is a strongly typed language, whereas javascript is not. A variable which has a value defined as a string can be changed to a number without any issues in Javascript. The same is not tolerated in typescript. In typescript, the type to a variable is defined at the start only and through the execution, it has to maintain the same type any changes to it will lead to a compile-time error during compilation to javascript.<div><div id="div-gpt-ad-9092914-6"><script>googletag.cmd.push(function(){googletag.display('div-gpt-ad-9092914-6');});</script></div></div><p>Following are the types : <ul> <li>Number</li> <li>String</li> <li>Boolean</li> <li>Any</li> <li>Void</li> </ul><h3>Number: </h3><p>will take only integers, floats, fractions, etc. <p>Syntax: <pre>
+let a :number = 10;
+let marks :number = 150;
+let price :number = 10.2;
+</pre><p>Here are some important methods which can be used on Number types: <p>toFixed() - it will convert the number to a string and will keep decimal places given to the method. <p>toString() - this method will convert number to a string. <p>valueOf() - this method will give back the primitive value of the number. <p>toPrecision() - this method will format the number to a specified length. <p>Example : with all String methods <pre>
+let _num :number = 10.345;
+_num.toFixed(2); // "10.35"
+_num.valueOf(); // 10.345
+_num.toString(); // "10.345"
+_num.toPrecision(2); //"10"
+</pre><h3>String </h3><p>String: only string values <p><strong>Syntax:</strong> <pre>
+let str :string = "hello world";
+</pre><p>Here are some important methods which can be used on String types: <ul><li><strong>split</strong>() - this method will split the string into an array. </li><li><strong>charAt</strong>() - this method will give the first character for the index given. </li><li><strong>indexOf</strong>() - this method will give the position of the first occurrence for the value given to it. </li><li><strong>Replace </strong>() - this method takes 2 strings, first the value to search in the string and if present will replace it will the 2nd one and will give a new string back. </li><li><strong>Trim </strong>() - this method will remove white spaces from both sides of the string. </li><li><strong>substr</strong>() - this method will give a part of the string which will depend on the position given as start and end. </li><li><strong>substring</strong>() - this method will give a part of the string which will depend on the position given as start and end. The character at the end position will be excluded. </li><li><strong>toUpperCase</strong>() -will convert the string to uppercase </li><li><strong>toLowerCase</strong>() - will convert the string to lowercase. </li></ul><p><strong>Example:</strong> <pre>
+let _str:string = "Typescript";
+
+_str.charAt(1); // y
+_str.split(""); //["T", "y", "p", "e", "s", "c", "r", "i", "p", "t"]
+_str.indexOf("s"); //4 , gives -1 is the value does not exist in the string.
+_str.replace("Type", "Coffee"); //"Coffeescript"
+_str.trim(); //"Typescript"
+_str.substr(4, _str.length); //"script"
+_str.substring(4, 10); //"script"
+_str.toUpperCase();//"TYPESCRIPT"
+_str.toLowerCase();//"typescript"
+</pre><h3>Boolean</h3><p>Will accept logical values like true, false, 0, and 1. <p>Syntax: <pre>
+let bflag :boolean = 1;
+let status :boolean = true;
+</pre><h3>Any</h3><p>Syntax: <pre>
+let a :any = 123
+a = "hello world"; // changing type will not give any error.
+</pre><p>Variables declared using <strong>any</strong> type can take the variable as a string, number, array, boolean or void. Typescript will not throw any compile-time error; this is similar to the variables declared in JavaScript. Make use of any type variable only when you aren't sure about the type of value which will be associated with that variable. <h3>Void</h3><p>Void type is mostly used as a return type on a function which does not have anything to return. <p>Syntax: <pre>
+function testfunc():void{
+ //code here
+}
+</pre><h2><a id="5"></a>What is an Array?</h2><p>An array is a data type in typescript wherein you can store multiple values. Let's learn how to declare and assign values for an array. <p>Since typescript is a strongly typed language, you have to tell what will be the data type of the values in an array. Otherwise, it will consider it as of type any. <h4>Declare and Initialize an Array</h4><p>Syntax: <pre>
+let nameofthearray : Array&lt;typehere&gt;
+</pre><p>Example <pre>
+let months: Array&lt;string&gt; = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]; //array with all string values.
+
+let years: Array&lt;number&gt; = [2015, 2016, 2017, 2018, 2019]; //array will all numbers
+
+let month_year: Array&lt;string | number&gt; = ["Jan", 2015, "Feb", 2016]; //array with string and numbers mixed.
+
+let alltypes: Array&lt;any&gt; = [true, false, "Harry", 2000, { "a": "50", "b": "20" }]; //array of all types boolean, string , number , object etc.
+</pre><h4>Different Ways to access elements from an Array</h4><p>To get the elements from an array, the values starts from index 0 to the length of the array. <p>Example: <pre>
+let years: Array&lt;number&gt; = [ 2016, 2017, 2018, 2019]; //array will all numbers			
+years[0]; // output will be 2016			
+years[1]; // output will be 2017			
+years[2]; // output will be 2018			
+years[3]; // output will be 2019
+</pre><p>You can also get the elements from an array using for loop as shown below: <h4>Using for loop</h4><pre>
+let years: Array&lt;number&gt; = [ 2016, 2017, 2018, 2019]; 
+for (let i=0;i&lt;=years.length; i++) {
+     console.log(years[i]);
+}
+Output:
+2016
+2017
+2018
+2019
+</pre><h4>Using for-in loop</h4><pre>
+let years: Array&lt;number&gt; = [ 2016, 2017, 2018, 2019]; 
+for (let i in years) {
+     console.log(years[i])
+}
+
+Output:
+2016
+2017
+2018
+2019
+</pre><h4>Using for-of loop</h4><pre>
+let years: Array&lt;number&gt; = [ 2016, 2017, 2018, 2019]; 
+for (let  i of years) {
+     console.log(i)
+}
+Output:
+2016
+2017
+2018
+2019
+</pre><h4>Using foreach loop</h4><pre>
+let years: Array&lt;number&gt; = [ 2016, 2017, 2018, 2019]; 
+years.forEach(function(yrs, i) {
+  console.log(yrs);
+});
+Output:
+2016
+2017
+2018
+2019
+</pre><h2><a id="6"></a>Typescript Array Methods</h2><p>Typescript Array object has many properties and methods which help developers to handle arrays easily and efficiently. You can get the value of a property by specifying arrayname.property and the output of a method by specifying array name.method(). <h3>length property</h3><p> =&gt; If you want to know the number of elements in an array, you can use the length property. <h3>Reverse method</h3><p> =&gt; You can reverse the order of items in an array using a reverse method. <h3>Sort method</h3><p> =&gt; You can sort the items in an array using sort method. <h3>Pop method</h3><p> =&gt; You can remove the last item of an array using a pop method. <h3>Shift method</h3><p> =&gt; You can remove the first item of an array using shift method. <h3>Push method</h3><p> =&gt; You can add value as the last item of the array. <h3>concat method</h3><p> =&gt; You can join two arrays into one array element. <h3>Example for length property</h3><pre>
+let months: Array&lt;string&gt; = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]; //array with all string values.
+
+console.log(months.length);  // 12
+</pre><h4>Example for reverse method:</h4><pre>
+let months: Array&lt;string&gt; = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]; //array with all string values.
+
+console.log(months.reverse());  //  ["Dec", "Nov", "Oct", "Sept", "Aug", "July", "June", "May", "April", "March", "Feb", "Jan"]
+</pre><h4>Example for sort method:</h4><pre>
+let months: Array&lt;string&gt; = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]; //array with all string values.
+
+console.log(months.sort()); // ["April", "Aug", "Dec", "Feb", "Jan", "July", "June", "March", "May", "Nov", "Oct", "Sept"]
+</pre><h4>Example for pop method:</h4><pre>
+let months: Array&lt;string&gt; = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]; //array with all string values.				
+
+console.log(months.pop()); //Dec
+</pre><h4>Example for shift method:</h4><pre>
+let months: Array&lt;string&gt; = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]; //array with all string values.			
+
+console.log(months.shift()); // Jan
+</pre><h4>Example for push method:</h4><pre>
+let years: Array&lt;number&gt; = [2015, 2016, 2017, 2018, 2019]; //array will all numbers			
+console.log(years.push(2020)); 			
+years.forEach(function(yrs, i) {			
+  console.log(yrs); // 2015 , 2016,2017, 2018, 2019,2020				
+});
+</pre><h4>Example for concat method:</h4><pre>
+let array1: Array&lt;number&gt; = [10, 20, 30]; 			
+let array2: Array&lt;number&gt; = [100, 200, 300];			
+console.log(array1.concat(array2)); //[10, 20, 30, 100, 200, 300]
+</pre><h2><a id="7"></a>Defining a Class in TypeScript</h2><p>Typescript is a superset of JavaScript, so whatever possible to do in JavaScript is also possible in typescript. Class is a new feature added from ES6 onward, so earlier in JavaScript the class type functionality was tried using a function with prototype functionality to reuse code. Using class, you can have our code almost close to languages like java, c#, python, etc., where the code can be reused. With the feature of class in Typescript/JavaScript, it makes the language very powerful. <p>Here is a basic class syntax in typescript: <pre>
+class nameofclass {
+     //define your properties here
+
+    constructor() {
+     // initialize your properties here
+    }
+ 
+   //define methods for class
+}
+</pre><h3>Example: A working example on Class</h3><pre>
+class Students {
+    age : number;
+    name : string;
+    roll_no : number;
+    
+    constructor(age: number, name:string, roll_no: number) {
+        this.age = age;
+        this.name = name;
+        this.roll_no = roll_no;
+    }
+
+    getRollNo(): number {
+        return this.roll_no;
+    }
+
+    getName() : string {
+        return this.name;
+    }
+
+    getAge() : number {
+        return this.age;
+    }
+} 
+</pre><p>In the above example, you have a class called Students. It has properties age, name, and roll_no. <h3>Constructor in a Typescript Class</h3><p>The class Students example we have defined above, it has a constructor as shown below : <pre>
+constructor(age: number, name:string, roll_no: number) {
+        this.age = age;
+        this.name = name;
+        this.roll_no = roll_no;
+    }
+</pre><p>The constructor method has params age, name, and roll_no. The constructor will take care of initializing the properties when the class is called. The properties are accessed using <strong>this</strong> keyword. Example this.age to access age property, this.roll_no to access roll_no, etc. You can also have a default constructor, as shown below: <pre>
+constructor () {}
+</pre><h3>Methods inside a Typescript Class</h3><p>The class Students example there are methods defined for example getRollNo(), getName(), getAge() which are used to give details of properties roll_no, name and age. <pre>
+getRollNo(): number {
+        return this.roll_no;
+}
+
+getName() : string {
+	return this.name;
+}
+
+getAge() : number {
+	return this.age;
+}
+</pre><h3>Creating Instance of Class in Typescript</h3><p><strong>Example:</strong> <p>In typescript to create an instance of a class you need to use the new operator. When we create an instance of a class using new operator we get the object which can access the properties and methods of the class as shown below: <pre>
+let student_details = new Students(15, "Harry John", 33);
+student_details.getAge(); // 15
+student_details.getName(); // Harry John
+</pre><h3>Compiling Typescript Class to JavaScript</h3><p>You can use tsc command as shown below to compile to Javascript. <p>Command: tsc Students.ts <p>The output of Javascript code on compilation is as shown below: <pre>
+var Students = /** @class */ (function () {
+    function Students(age, name, roll_no) {
+        this.age = age;
+        this.name = name;
+        this.roll_no = roll_no;
+    }
+    Students.prototype.getRollNo = function () {
+        return this.roll_no;
+    };
+    Students.prototype.getName = function () {
+        return this.name;
+    };
+    Students.prototype.getAge = function () {
+        return this.age;
+    };
+    return Students;
+}());
+</pre><p>In Javascript, the Class is converted into a self invoked function. <h3>Class Inheritance </h3><p>Classes can be inherited using the <strong>extend </strong>keyword in Typescript. <h4>Class Inheritance Syntax:</h4><pre>
+class A {
+     //define your properties here
+
+    constructor() {
+     // initialize your properties here
+    }
+ 
+   //define methods for class
+
+}
+
+class B extends A {
+ //define your properties here
+
+    constructor() {
+     // initialize your properties here
+    }
+ 
+   //define methods for class
+
+}
+</pre><p><strong>class B</strong> will be able to share <strong>class A</strong> methods and properties. <p>Here is a working example of a class using Inheritance <pre>
+class Person {
+    name: string;
+    age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    getName(): string {
+        return this.name;
+    }
+
+    getAge(): number {
+        return this.age;
+    }
+}
+
+class Student extends Person {
+    tmarks: number;
+    getMarks(): number {
+        return this.tmarks;
+    }
+
+    setMarks(tmarks) {
+        this.tmarks = tmarks;
+    }
+}
+
+let _std1 = new Student('Sheena', 24);
+_std1.getAge(); // output is 24
+_std1.setMarks(500);
+_std1.getMarks(); // output is 500
+</pre><p>You have two classes, Person and Student. Student class extends Person, and the object created on Student is able to access its own methods and properties as well as the class it has extended. <p>Now let us add some more changes to the above class. <p><strong>Example:</strong> <pre>
+class Person {
+    name: string;
+    age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    getName(): string {
+        return this.name;
+    }
+
+    getAge(): number {
+        return this.age;
+    }
+}
+
+class Student extends Person {
+    tmarks: number;
+    constructor(name: string, age: number, tmarks: number) {
+        super(name, age);
+    }
+    getMarks(): number {
+        return this.tmarks;
+    }
+
+    setMarks(tmarks) {
+        this.tmarks = tmarks;
+    }
+}
+
+let _std1 = new Student('Sheena', 24, 500);
+_std1.getAge(); // output is 24
+_std1.getMarks(); // output is 500
+</pre><p>The changes that you have added in comparison to the previous example is there is a constructor defined in class Student. The constructor has to take the same params as the base class and add any additional params of its own if any. <p>In typescript you need to call super will all the params as the bases params in it. This has to be the first thing to be done inside the constructor. The super will execute the constructor of the extended class. <h2><a id="8"></a>Access Modifiers in Typescript</h2><p>Typescript supports public, private, and protected access modifiers to your methods and properties. By default, if access modifiers are not given the method or property is considered as public, and they will be easily accessible from the object of the class. <p>In case of private access modifiers, they are not available to be accessed from the object of the class and meant to be used inside the class only. They are not available for the inherited class. <p>In case of protected access modifiers, they are meant to be used inside the class and the inherited class and will not be accessible from the object of the class. <p>Example: <pre>
+class Person {
+    protected name: string;
+    protected age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    private getName(): string {
+        return this.name;
+    }
+
+    getDetails(): string {
+        return "Name is "+ this.getName();
+    }
+}
+
+class Student extends Person {
+    tmarks: number;
+    constructor(name: string, age: number, tmarks: number) {
+        super(name, age);  
+        this.tmarks = tmarks;    
+    }
+    getMarks(): number {
+        return this.tmarks;
+    }
+
+    getFullName(): string {
+        return this.name;
+    }
+    
+    setMarks(tmarks) {
+        this.tmarks = tmarks;
+    }
+}
+
+let _std1 = new Student('Sheena', 24, 500);
+_std1.getMarks(); // output is 500
+_std1.getFullName(); // output is Sheena
+_std1.getDetails(); // output is Name is Sheena
+</pre><ul><li><strong>Private </strong>properties or methods cannot be accessed by the object of the class and also the derived class, they are meant to be used internally inside the class. </li><li><strong>Protected</strong> properties and methods also cannot be accessed by the object created. They are accessible from inside the class and available to the class extending it. </li><li><strong>Public</strong> properties and methods are declared without any keyword. They are easily accessed using the object of the class from outside. </li></ul><h2><a id="9"></a>Interface in TypeScript</h2><p>One of the core features of Typescript is interfaces. The interface is a set of a rule defined which needs to be implemented by the entity using it. The entity can be a class, function, or variable. An interface can be made up of properties and methods. You can define properties as optional using "?" syntax for that property or method. The interface adds a strong type check for any function, variable, or class implementing the interface. <p><strong>Syntax of an interface in Typescript:</strong> <pre>
+interface Dimension {
+    width: string;
+    height: string;
+}
+</pre><p>You have defined an interface named as Dimension which has properties width and height, and both have type as a string. <p>Now this interface can be implemented by a variable, a function, or a class. Here is the example of variable implementing the interface Dimension. <p>Example: <pre>
+interface Dimension {
+    width: string;
+    height: string;
+}
+
+let _imagedim: Dimension = {
+    width: "100px",
+    height: "200px"
+};
+</pre><p>The signature of the interface Dimension has width and height, and both are mandatory. In case while implementing the interface, any of the property is missed, or the type is changed, it will give a compile time error while compiling the code to javascript. <p>The above code, when compiled to javascript, looks as follows: <pre>
+var _imagedim = {
+    width: "100px",
+    height: "200px"
+};
+</pre><p>Let us now see how to use an interface with a function. <h4>Using Interface on a function as a return type</h4><p><strong>Example:</strong> <pre>
+interface Dimension {
+    width: string;
+    height: string;
+}
+
+function getDimension() : Dimension {
+    let width = "300px";
+    let height = "250px";
+    return {
+        width: width,
+        height: height
+    }
+}
+</pre><p>In the above example, the interface Dimension is implemented on the function getDimension() as the return type. The return type of getDimension() has to match with the properties and type mentioned for Interface Dimension. <p>The compiled code to Javascript will be as follows: <pre>
+function getDimension() {
+    var width = "300px";
+    var height = "250px";
+    return {
+        width: width,
+        height: height
+    };
+}
+</pre><p>During compilation, if the return type does not match with the interface, it will throw an error. <h4>Interface as function parameter</h4><pre>
+interface Dimension {
+    width: string;
+    height: string;
+}
+
+function getDimension(dim: Dimension) : string {
+    let finaldim  = dim.width +"-"+ dim.height;
+    return finaldim;
+}
+
+getDimension({width:"300px", height:"250px"}); // will get "300px-250px" 
+</pre><p>So above example, you have used Interface Dimension as a parameter to the function getDimension(). When you call the function, you need to make sure the parameter passed to it matches to the Interface rule defined. <p>The compiled code to Javascript will be as follows: <pre>
+function getDimension(dim) {
+    var finaldim = dim.width + "-" + dim.height;
+    return finaldim;
+}
+getDimension({ width: "300px", height: "250px" });
+</pre><h4>Class implementing Interface</h4><p>To make use of interface with a class, you need to use the keyword <strong>implements</strong>. <p>Syntax for Class implementing an interface: <pre>
+class NameofClass implements InterfaceName {
+}
+</pre><p>Following example shows working of interface with class. <pre>
+interface Dimension {
+    width : string,
+    height: string,
+    getWidth(): string; 
+}
+
+class Shapes implements Dimension {
+    width: string;
+    height: string;
+    constructor (width:string, height:string) {
+        this.width = width;
+        this.height = height;
+    }
+    getWidth() {
+        return this.width;
+    }
+}
+</pre><p>In the above example, you have defined interface Dimension with properties width and height both of type string and a method called getWidth() which has return value as a string. <p>The compiled code to Javascript will be as follows: <pre>
+var Shapes = /** @class */ (function () {
+    function Shapes(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+    Shapes.prototype.getWidth = function () {
+        return this.width;
+    };
+    return Shapes;
+}());
+</pre><h2><a id="10"></a>Functions in Typescript</h2><p>Functions are set of instructions performed to carry out a task. In Javascript, most of the code is written in the form of functions and plays a major role. In typescript, you have class, interfaces, modules, namespaces available, but still, functions play an important role. The difference between the function in javascript and typescript function is the return type available with typescript function. <p>JavaScript function: <pre>
+function add (a1, b1) { 
+   return a1+b1;
+}
+</pre><p>Typescript function:<strong> </strong> <pre>
+function  add(a1 : number, b1: number) : number {
+    return a1 + b1;
+}
+</pre><p>In the above functions, the name of the function is added, the params are <strong>a1</strong>, and <strong>b1</strong> both have a type as a number, and the return type is also a number. If you happen to pass a string to the function, it will throw a compile-time error while compiling it to JavaScript. <h3>Making call to the function: add</h3><pre>
+let  x = add(5, 10) ;  // will return 15
+let  b = add(5); // will throw an error : error TS2554: Expected 2 arguments, but got 1.
+let c = add(3,4,5); // will throw an error : error TS2554: Expected 2 arguments, but got 3.
+let t = add("Harry", "John");// will throw an error :  error TS2345: Argument of type '"Harry"' is not assignable to parameter of type 'number'.
+</pre><p>The params <strong>a1</strong> and <strong>b1</strong> are mandatory parameters and will throw an error if not received in that manner. Also, the param type and return type is very important and cannot change once defined. <h4>Optional parameters to a function</h4><p>In javascript, all the parameters to the functions are optional and considered as undefined if not passed. But same is not the case with typescript, once you define the params you need to send them too, but in case you want to keep any param optional, you can do so by using? against the param name as shown below: <pre>
+function getName(firstname: string, lastname?: string): string {
+    return firstname + lastname;
+}
+
+let a = getName("John"); // will return Johnundefined.
+let b = getName("John", "Harry"); // will return JohnHarry
+let c = getName("John", "H", "Harry"); // error TS2554: Expected 1-2 arguments, but got 3.
+</pre><p>Please note that the optional params are to be defined in a function at the last only, you cannot have the first param as optional and second param as mandatory.When you call the function with one param compiler will throw an error. So it is necessary to keep the optional params at the end. <h3>Assign Default Values to Params</h3><p>You can assign default values to params as shown below: <pre>
+function getName(firstname: string, lastname = "Harry"): string {
+    return firstname + lastname;
+}
+
+let a = getName("John"); // will return JohnHarry
+let b = getName("John", "H"); // will return JohnH
+</pre><p>Similar to optional params, here too default initialized params has to be kept at the end in a function. <h3>Rest Parameters</h3><p>You have seen how typescript handles mandatory params, optional params, and the default value initialized params. Now, will take a look at rest params. Rest params are a group of optional params defined together, and they are defined using three <strong>dots (...)</strong> followed by the name of the param, which is an array. <p>Syntax for Rest params: <pre>
+function testFunc(a: string, ...arr: string[]) :string {
+    return a + arr.join("");
+}
+</pre><p>As shown above, the rest params are defined using (…param-name); the rest param is an array prefixed by three dots. The array will have all the params passed to it. You can call the function, as shown in the example below: <p><strong>Example:</strong> <pre>
+let a = testFunc("Monday", "Tuesday", "Wednesday", "Thursday"); // will get output as MondayTuesdayWednesdayThursday
+</pre><h3>Arrow Functions</h3><p>An arrow function is one of the important features released in ES6, and it is available in typescript too. Arrow function syntax has a fat arrow in it due to which the function is called an arrow function. <p>Arrow function Syntax: <pre>
+var nameoffunction = (params) =&gt; {				
+ // code here			
+}
+</pre><h3>What is the use of Arrow Function?</h3><p>Let's take a look at the example to understand the use case of Arrow function: <p><strong>Example :</strong> <pre>
+var ScoreCard = function () {
+    this.score = 0;
+
+    this.getScore = function () {
+        setTimeout(function () {
+            console.log(this.score);    // gives undefined.    
+        }, 1000);
+    }    
+}
+
+var a = new ScoreCard();
+a.getScore();
+</pre><p>You have created an anonymous function which has a property this. Score initialize to 0 and a method getScore which internally has a setTimeout, and in 1 second it consoles this.score. The consoled value gives undefined though you have this.score defined and initialized. The issue here is with th<strong>is</strong> keyword. The function inside setTimeout has its own this, and it tries to refer the score internally, and since it is not defined, it gives undefined. <p>The same can be taken care using Arrow function as shown below: <pre>
+var ScoreCard = function () {
+    this.score = 0;
+
+    this.getScore = function () {
+        setTimeout(()=>{
+            console.log(this.score);   // you get  0
+        }, 1000);
+    }    
+}
+
+var a = new ScoreCard();
+a.getScore();
+</pre><p>You have changed the function inside setTimeout to a arrow function as shown below: <pre>
+setTimeout(()=>{
+            console.log(this.score);   // you get  0
+        }, 1000);
+</pre><p>An arrow function does not have its own <strong>this</strong> defined and it shares its parent <strong>this</strong>, so variables declared outside are easily accessible using this inside an arrow function. They are useful because of the shorter syntax as well as for callbacks, event handlers, inside timing functions, etc. <h2><a id="11"></a>What is an Enum?</h2><p>An enum is an object which has a collection of related values stored together. Javascript does not support enums. Most of the programming language like java, c, c++ supports enum and it also available with typescript too. Enums are defined using keyword enum. <h3>How to declare an Enum?</h3><p>Syntax: <pre>
+enum NameofEnum {
+   value1,
+   value2,
+    ..
+}
+</pre><p>Example: Enum <pre>
+enum Directions {
+North,
+South,
+East,
+West
+}
+</pre><p>In the above example, you have defined an enum called Directions. The value given is North, South, East, West. The values are numbered from 0 for the first value in the enum and subsequently increments by 1 for the next value. <h3>Declare An Enum with a numeric value </h3><p>By default, if an enum is not given any value, it considers it a number starting from 0. Following example shows an enum with a numeric value. <pre>
+enum Directions {
+North = 0,
+South = 1, 
+East =2,
+West =3
+}
+</pre><p>You may also assign a start value to the enum and the next enum values will get the incremented values. For example: <pre>
+enum Directions {
+North = 5,
+South, // will be 6
+East, // 7
+West // 8
+}
+</pre><p>Now the enum value North starts with 5, so South will get value as 6, East = 7 and West = 8. <p>You may also assign values of your choice instead of taking the default ones. For Example: <pre>
+enum Directions {
+North = 5,
+South = 4,
+East = 6,
+West = 8
+}
+</pre><h3>How to access an Enum?</h3><p>Following example shows how to make use of Enum in your code: <pre>
+enum Directions {
+    North,
+    South,
+    East,
+    West
+}
+
+console.log(Directions.North); // output is  0
+console.log(Directions["North"]); // output is 0
+console.log(Directions[0]); //output is North
+</pre><p>The compiled code to javascript is as follows: <pre>
+var Directions;
+(function (Directions) {
+    Directions[Directions["North"] = 0] = "North";
+    Directions[Directions["South"] = 1] = "South";
+    Directions[Directions["East"] = 2] = "East";
+    Directions[Directions["West"] = 3] = "West";
+})(Directions || (Directions = {}));
+console.log(Directions.North);
+console.log(Directions["North"]);
+console.log(Directions[0]);
+</pre><p>Since Javascript does not support enums, it converts the enum into a self invoked functions as shown above. <h3>Declare An Enum with a string value </h3><p>You can assign string values of your choice, as shown in the example below: <p>Example: <pre>
+enum Directions {
+    North = "N",
+    South = "S",
+    East = "E",
+    West = "W"
+}
+
+console.log(Directions.North); // output is N
+console.log(Directions["North"]); // output is N
+console.log(Directions[0]); // output is North
+</pre><p>The compiled code to javascript is as follows: <pre>
+var Directions;
+(function (Directions) {
+    Directions["North"] = "N";
+    Directions["South"] = "S";
+    Directions["East"] = "E";
+    Directions["West"] = "W";
+})(Directions || (Directions = {}));
+console.log(Directions.North);
+console.log(Directions["North"]);
+console.log(Directions[0]);
+</pre><h2><a id="12"></a>What are the Modules in Typescript?</h2><p>The files created in typescript have global access, which means that variables declared in one file are easily accessed in another file. This global nature can cause code conflicts and can cause issues with execution at run-time. You have export and import module functionality which can be used to avoid global variable, function conflicts. This feature is available in JavaScript with ES6 release and also supported in typescript. <h3>Why do you need Modules in Typescript?</h3><p>Following example shows the issue without modules: <p><strong>Example test1.ts</strong> <pre>
+let age : number = 25;
+</pre><p>You have defined a variable age of type number in test1.ts. <p><strong>Example test2.ts</strong> <p>In test2.ts file you are easily able to access the variable <strong>age </strong>defined in test1.ts and also modify it as shown below: <pre>
+age = 30; // changed from 25 to 30.
+let _new_age = age;
+</pre><p>So the above case can create a lot of problems as the variables are globally available and can be modified. <p>With <strong>Modules</strong>, the code written remains locale to the file and cannot be accessed outside it. To access anything from the file, it has to be exported using the export keyword. <strong> It</strong> is used when you want the variable, class, function, or interface to be used in another file. <strong>Import</strong> is used when you want to access the exported variable, class, or interface or function too. Doing so the code is written remains intact within the file, and even if you define same variable names, they are not mixed up and behave local to the file where they are declared. <h3>Using Export and Import</h3><p>There are many ways to export and import. So will discuss syntax here which is mostly used. <h4>The syntax for import and export 1: </h4><pre>
+export  nameofthevariable or class name or interface name etc
+
+//To import above variable or class name or interface you have to use import as shown below:
+ 
+
+Import {nameof thevariable or class name or interfacename} from "file path here without.ts"
+</pre><p>Here is a working example using export and import. <p><strong>Example:</strong> <p><strong>test1.ts</strong> <pre>
+export let age: number = 25;
+</pre><p>Export keyword is used to share age variable in another file. <p><strong>test2.ts</strong> <pre>
+import { age } from "./test1"
+let new_age :number = age;
+</pre><p>Import keyword is used to access the <strong>age</strong> variable, and you need to specify the file location as shown above. <h4>Syntax for import and export 2:</h4><p>There is another way to export, and import and the syntax for the same is as shown below: <pre>
+export = classname;
+
+import classname = require(“file path of modulename”)
+</pre><p>When you are using <strong>export = </strong>to export your module, the import has to use require("file path of modulename") to import it. <p>Here is a working example showing the above case: <p><strong>Customer.ts</strong> <pre>
+class Customer {
+    name: string;
+    age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    getName(): string {
+        return this.name;
+    }
+}
+
+export = Customer;
+</pre><p><strong>testCustomer.ts</strong> <pre>
+import Customer = require("./Customer");
+
+let a = new Customer("Harry", 30);
+alert(a.getName());
+</pre><h3>Module Loader</h3><p>Modules cannot work on its own, so you need module loader to locate the import dependencies as you have seen in examples shown above. The module loader available is CommonJS for nodejs and Require.js to run in the browser. <p>To compile code using CommonJS module use following command: <pre>
+tsc --module commonjs testCustomer.ts
+</pre><p>To compile code using Requirejs module use following command: <pre>
+tsc --module amd testCustomer.ts
+</pre><p>The dependent files will get converted to js file with above command. <h4>Example testCustomer.ts to testCustomer.js using Requirejs</h4><pre>
+define(["require", "exports", "./Customer"], function (require, exports, Customer) {
+    "use strict";
+    exports.__esModule = true;
+    var a = new Customer("Harry", 30);
+    alert(a.getName());
+});
+</pre><h4>Example Customer.ts to Customer.js using Requirejs</h4><pre>
+define(["require", "exports"], function (require, exports) {
+    "use strict";
+    var Customer = /** @class */ (function () {
+        function Customer(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Customer.prototype.getName = function () {
+            return this.name;
+        };
+        return Customer;
+    }());
+    return Customer;
+});
+</pre><p>To test it using require.js, you need to create a file called main.js, which has reference to the dependencies as shown. <p>Here is the folder structure: <pre>
+src/
+    Customer.js
+    testCustomer.js
+    main.js
+    require.js  // you can get this file from github or npm install requirejs
+    test.html
+</pre><p>main.js <pre>
+define(function (require) {
+    var customer = require("./Customer");
+    var testCustomer = require("./testCustomer");
+});
+</pre><p>test.html <pre>
+&lt;!DOCTYPE html&gt;			
+&lt;html&gt;			
+&lt;head&gt;			
+    &lt;title&gt;Typescript Module testing using Requirejs&lt;/title&gt;			
+    &lt;script data-main="main" src="/require.js"&gt;&lt;/script&gt;			
+&lt;/head&gt;			
+&lt;body&gt;			
+    &lt;h3&gt;Testing modules using Requirejs&lt;/h3&gt;			
+&lt;/body&gt;			
+&lt;/html&gt;
+</pre><p style="text-align: center;"><a href="/images/1/060719_0536_TypeScriptT2.png" class="jh-image-popup-colorbox"><img src="/images/1/060719_0536_TypeScriptT2.png" alt=""></a> <h2><a id="13"></a>Namespaces in Typescript</h2><p>Namespace is basically has collection of classes, interfaces, variables, functions together in one file. <h3>Namespace Syntax:</h3><pre>
+namespace name{
+
+export class {
+}
+
+export interface {
+}
+
+export const constname;
+
+}
+</pre><p>The code related in available under one namespace. <p>Namespace working example: testnamespace.ts <pre>
+namespace StudentSetup {
+
+    export interface StudDetails {
+        name: string;
+        age: number;
+    }
+
+    export function addSpace(str) { // will add space to the string given
+        return str.split("").join(" ");
+    }
+
+    export class Student implements StudDetails {
+        name: string;
+        age: number;
+
+        constructor(studentdetails: StudDetails) {
+            this.name = studentdetails.name;
+            this.age = studentdetails.age;
+        }
+
+        getName(): string {
+            return this.name;
+        }
+    }
+}
+</pre><p>The name of the namespace is <strong>StudentSetup, </strong>you have added a interface StudDetails , function addSpace and a class called Student. <h3>Accessing Namespace </h3><p>Following is the code where you are using the namespace <strong>StudentSetup.</strong> <p>testStudentSetup.ts <pre>
+let a = new StudentSetup.Student({ name: "Harry", age: 20 });
+
+console.log("The name is :" + StudentSetup.addSpace(a.getName()));
+</pre><p>The class, interface, a function available inside a namespace has to be referred using the name of the namespace example <strong>StudentSetup.addSpace</strong> to access the function, <strong>StudentSetup.Student</strong> to access the class. <p>You can compile both files into one js as shown below: <pre>
+tsc --outFile namespace.js testnamespace.ts  testStudentSetup.ts
+</pre><p>Check the output in command prompt using below command: <pre>
+node namespace.js
+</pre><p>It will display output as : <pre>
+The name is: H a r r y
+</pre><h2><a id="14"></a>Ambient Declarations in Typescript</h2><p>Typescript allows you to use third-party javascript files using ambient declaration. The advantage of this feature is that you don't have to rewrite and yet use all the features of the library in typescript. <h3>Ambient Syntax</h3><h4>To declare ambient module:<strong> </strong></h4><pre>
+declare module moduleName {
+   //code here
+}  
+</pre><h4>The ambient file has to saved as :<strong> </strong></h4><pre>
+filename.d.ts
+</pre><p>To use the file <strong>filename.d.ts</strong> in your .ts you need to refer it as: <pre>
+/// &lt;reference path="filename.d.ts"/&gt;
+</pre><p>The ambient type declaration in typescript will have a reference to the third party library and will re-declare the functions required with its own type. For example, consider you have a small javascript library, as shown below: <h4>Third Party JavaScript file: testString.js <strong> </strong></h4><p>Example: testString.js <pre>
+var StringChecks = {
+    isString: function (str) {
+        return typeof str === "string";
+    },
+
+    convertToUpperCase: function (str) {
+        return str.toUpperCase();
+    },
+
+    convertToLowerCase: function (str) {
+        return str.toLowerCase();
+    },
+
+    convertToStringBold: function (str) {
+        return str.bold();
+    }
+};
+</pre><p>You have an object called StringChecks which has functions like isString, convertToUpperCase, convertToLowerCase, and converToStringBold. <h3>Creating of Ambient Module in Typescript</h3><p>Now will create an ambient module which will have reference to above js functions and also add type check as per our requirements. <p>Filename : tstring.d.ts <pre>
+declare module TestString {
+
+    export interface StringsFunc {
+        isString(str: string): boolean;
+        convertToUpperCase(str: string): string;
+        convertToLowerCase(str: string): string;
+        convertToStringBold(str: string): string;
+    }
+}
+
+declare var StringChecks: TestString.StringsFunc;
+</pre><p>You have to define a module name as TestString and have exported interface StringsFunc. <h3>isString(str: string): boolean</h3><p><strong> =&gt; </strong> This will take param as a string and the return type will be boolean. When using in your .ts file in case you happen to pass the param as a number or anything other than string it will give you a compile type error.		
+
+<h3>convertToUpperCase(str:string): string</h3><p> =&gt; This will take argument as string and return a string.Same goes for <strong>convertToLowerCase(str: string)</strong> : string; and <strong>convertToStringBold(str: string): string</strong> ; <p>Since in the javascript file you have the object name as StringChecks, finally we need to refer the same in the .d.ts file which is done as : <pre>
+declare var StringChecks: TestString.StringsFunc;
+</pre><h4>Using Ambient module in Typescript</h4><p>Now here is the test.ts file where will use ambient file tstring.d.ts <p>Example: test.ts <pre>
+/// &lt;reference path="tstring.d.ts"/&gt;
+let str1 = StringChecks.isString("Hello World");
+console.log(str1);
+let str2 = StringChecks.convertToUpperCase("hello world");
+console.log(str2);
+let str3 = StringChecks.convertToLowerCase("HELLO");
+console.log(str3);
+let str4 = StringChecks.convertToStringBold("Hello World");
+console.log(str4);
+</pre><p>Compile typescript tsc test.ts to test.js <pre>
+/// &lt;reference path="tstring.d.ts"/&gt;
+var str1 = StringChecks.isString("Hello World");
+console.log(str1);
+var str2 = StringChecks.convertToUpperCase("hello world");
+console.log(str2);
+var str3 = StringChecks.convertToLowerCase("HELLO");
+console.log(str3);
+var str4 = StringChecks.convertToStringBold("Hello World");
+console.log(str4);
+</pre><p>Now you can use test.js in html file and also the library file testString.js <pre>
+&lt;html&gt;			
+&lt;head&gt;			
+    &lt;title&gt;Test Typescript Ambient&lt;/title&gt;			
+    &lt;script src="/testStrings.js"&gt;&lt;/script&gt;			
+    &lt;script src="/test.js"&gt;&lt;/script&gt;			
+&lt;/head&gt;			
+&lt;body&gt;			
+&lt;/body&gt;			
+&lt;/html&gt;
+</pre><p>This is the output seen in the console: <pre>
+true			
+HELLO WORLD			
+hello			
+&lt;b&gt;Hello World&lt;/b&gt;
+</pre><h2><a id="15"></a>Typescript History</h2><p>Let see important landmarks from the history of Typescript: <ul><li>After two years of internal development at Microsoft. TypeScript 0.9, released in 2013 </li><li>Additional support for generics TypeScript 1.0 was released at Build 2014 </li><li>In July 2014, a new TypeScript compiler came which is five times faster than it's the previous version. </li><li>In July 2015, support for ES6 modules, namespace keyword, for, of support, decorators. </li><li>In November 2016, an added feature like key and lookup types of mapped types, and rest. </li><li>On March 27, 2018, conditional types, the improved key with intersection types supports added in the Typescript.</li></ul><h2><a id="16"></a>Why use Typescript?</h2><p>Here, are important pros/benefits of using Typescript <ul><li>Big and complex project in JavaScript are difficult to code and maintain. </li><li>Typescript helps a lot in code organization and yet gets rid of most of the errors during compilation.</li><li>TypeScript supports JS libraries &amp; API Documentation </li><li>It is optionally typed scripting language</li><li>TypeScript Code can be converted into plain JavaScript Code</li><li>Better code structuring and object-oriented programming techniques</li><li>Allows better development time tool support</li><li>It can extend the language beyond the standard decorators, async/await</li></ul><h2><a id="17"></a>Who uses Typescript?</h2><p>Here, are some most common applications of Typescript: <ul><li>The angular team uses Typescript. </li><li>NodeJS and NPM Installation</li><li>Typescript Installation</li><li>Compile Typescript code to Javascript</li><li>Execute Code using Nodejs</li><li>Execute Javascript in Browser</li><li>Compile Typescript code to Javascript using EcmaScript version</li><li>You can easily compile code written in typescript to JavaScript using NodeJS.</li><li>So to work with typescript you need first to download and install NodeJS.</li></ul><p id="slidetag">&nbsp;</p></div><ul class="pager pagenav"> <li class="previous"> <a class="hasTooltip" title="JavaScript Unit Testing Frameworks" aria-label="Previous article: JavaScript Unit Testing Frameworks" href="javascript-unit-testing-frameworks.html" rel="prev"> <span class="icon-chevron-left" aria-hidden="true"></span> <span aria-hidden="true">Prev</span> </a> </li> <span><a href="javascript:void( window.open( 'https://form.jotform.me/72391811797466', 'blank', 'scrollbars=yes, toolbar=no, width=700, height=700' ) )" onclick="ga('send', 'event', 'ReportBug', 'ReportBug', 'ReportBug');" style="padding:0px;background:#FFF;color:#04b8e6;font-size:15px;" rel="nofollow"><strong>Report a Bug</strong></a></span> <li class="next"> <a class="hasTooltip" title="Typescript vs JavaScript: What's the Difference?" aria-label="Next article: Typescript vs JavaScript: What's the Difference?" href="typescript-vs-javascript.html" rel="next"> <span aria-hidden="true">Next</span> <span class="icon-chevron-right" aria-hidden="true"></span> </a> </li> </ul> </div></div></div></div></div></div><div class="g-grid"><div class="g-block size-100"><div class="g-content"><div class="platform-content"><div class="moduletable "> <span class="related-title">YOU MIGHT LIKE:</span> <div class="ac acimage-left three-column image-border-light"><article><h6 class="cat" property="genre"> Java Tutorials </h6><div class="image-feat"> <a href="array-of-objects.html"> <a href="array-of-objects.html" onclick="ga('send', 'event', 'Related_articles', 'How to Create Array of Objects in Java', 'How to Create Array of Objects in Java');"><img src="/images/relateditemsxtd/ad9f3470be26257e61f8aed649ee6b10.jpg" alt="" title=""></a>  </div><header> <a href="array-of-objects.html" onclick="ga('send', 'event', 'Related_articles', 'How to Create Array of Objects in Java', 'How to Create Array of Objects in Java');"><h4 class="title" property="genre">How to Create Array of Objects in Java</h4></a> </header><div class="content" property="articleBody"><p>What Is An Array Of Objects? JAVA ARRAY OF OBJECT , as defined by its name, stores an array of...</p></div><footer> <a class="rm" href="array-of-objects.html" onclick="ga('send', 'event', 'Related_articles', 'How to Create Array of Objects in Java', 'How to Create Array of Objects in Java');">Read more</a> </footer></article><article><h6 class="cat" property="genre"> Java Tutorials </h6><div class="image-feat"> <a href="java-message-service-interview-questions.html"> <a href="java-message-service-interview-questions.html" onclick="ga('send', 'event', 'Related_articles', 'Top 25 JMS (Java Message Service) Interview Questions &amp; Answers', 'Top 25 JMS (Java Message Service) Interview Questions &amp; Answers');"><img src="/images/relateditemsxtd/3c3124bb8b9450c26ba85601ed784329.png" alt="" title=""></a>  </div><header> <a href="java-message-service-interview-questions.html" onclick="ga('send', 'event', 'Related_articles', 'Top 25 JMS (Java Message Service) Interview Questions &amp; Answers', 'Top 25 JMS (Java Message Service) Interview Questions &amp; Answers');"><h4 class="title" property="genre">Top 25 JMS (Java Message Service) Interview Questions &amp; Answers</h4></a> </header><div class="content" property="articleBody"><p>1) What is JMS? JMS means Java Messaging Service. It is the new standard for inter client...</p></div><footer> <a class="rm" href="java-message-service-interview-questions.html" onclick="ga('send', 'event', 'Related_articles', 'Top 25 JMS (Java Message Service) Interview Questions &amp; Answers', 'Top 25 JMS (Java Message Service) Interview Questions &amp; Answers');">Read more</a> </footer></article><article><h6 class="cat" property="genre"> Java Tutorials </h6><div class="image-feat"> <a href="string-length-method-java.html"> <a href="string-length-method-java.html" onclick="ga('send', 'event', 'Related_articles', 'String Length() Method in Java with Example', 'String Length() Method in Java with Example');"><img src="/images/relateditemsxtd/4dd35aed8a93c1e80d40f43e1604f96c.png" alt="" title=""></a>  </div><header> <a href="string-length-method-java.html" onclick="ga('send', 'event', 'Related_articles', 'String Length() Method in Java with Example', 'String Length() Method in Java with Example');"><h4 class="title" property="genre">String Length() Method in Java with Example</h4></a> </header><div class="content" property="articleBody"><p>What is String "Length" Method in Java? This function is used to get the length of a Java String....</p></div><footer> <a class="rm" href="string-length-method-java.html" onclick="ga('send', 'event', 'Related_articles', 'String Length() Method in Java with Example', 'String Length() Method in Java with Example');">Read more</a> </footer></article><article><h6 class="cat" property="genre"> Java Tutorials </h6><div class="image-feat"> <a href="difference-between-jdk-jre-jvm.html"> <a href="difference-between-jdk-jre-jvm.html" onclick="ga('send', 'event', 'Related_articles', 'JDK vs JRE vs JVM: Key Differences', 'JDK vs JRE vs JVM: Key Differences');"><img src="/images/relateditemsxtd/1d8d3902cd6dd4fb07f97c789dd657a6.png" alt="" title=""></a>  </div><header> <a href="difference-between-jdk-jre-jvm.html" onclick="ga('send', 'event', 'Related_articles', 'JDK vs JRE vs JVM: Key Differences', 'JDK vs JRE vs JVM: Key Differences');"><h4 class="title" property="genre">JDK vs JRE vs JVM: Key Differences</h4></a> </header><div class="content" property="articleBody"><p>What is JDK? JDK is a software development environment used for making applets and Java...</p></div><footer> <a class="rm" href="difference-between-jdk-jre-jvm.html" onclick="ga('send', 'event', 'Related_articles', 'JDK vs JRE vs JVM: Key Differences', 'JDK vs JRE vs JVM: Key Differences');">Read more</a> </footer></article><article><h6 class="cat" property="genre"> Java Tutorials </h6><div class="image-feat"> <a href="cpp-vs-java.html"> <a href="cpp-vs-java.html" onclick="ga('send', 'event', 'Related_articles', 'C++ Vs JAVA: What’s the Difference?', 'C++ Vs JAVA: What’s the Difference?');"><img src="/images/relateditemsxtd/c4b30188d65220b62d17057362d2650f.png" alt="" title=""></a>  </div><header> <a href="cpp-vs-java.html" onclick="ga('send', 'event', 'Related_articles', 'C++ Vs JAVA: What’s the Difference?', 'C++ Vs JAVA: What’s the Difference?');"><h4 class="title" property="genre">C++ Vs JAVA: What’s the Difference?</h4></a> </header><div class="content" property="articleBody"><p>What is the C++ language? C++ is a computer programming language that contains the feature of C...</p></div><footer> <a class="rm" href="cpp-vs-java.html" onclick="ga('send', 'event', 'Related_articles', 'C++ Vs JAVA: What’s the Difference?', 'C++ Vs JAVA: What’s the Difference?');">Read more</a> </footer></article><article><h6 class="cat" property="genre"> Java Tutorials </h6><div class="image-feat"> <a href="java-string-replace-method.html"> <a href="java-string-replace-method.html" onclick="ga('send', 'event', 'Related_articles', 'Java String replace(), replaceFirst() &amp; replaceAll() Method EXAMPLE', 'Java String replace(), replaceFirst() &amp; replaceAll() Method EXAMPLE');"><img src="/images/relateditemsxtd/8fea67dc421c69e9e31c0c3da3e62bca.png" alt="" title=""></a>  </div><header> <a href="java-string-replace-method.html" onclick="ga('send', 'event', 'Related_articles', 'Java String replace(), replaceFirst() &amp; replaceAll() Method EXAMPLE', 'Java String replace(), replaceFirst() &amp; replaceAll() Method EXAMPLE');"><h4 class="title" property="genre">Java String replace(), replaceFirst() &amp; replaceAll() Method EXAMPLE</h4></a> </header><div class="content" property="articleBody"><p>Java String has three types of Replace method replace replaceAll replaceFirst. With the help of...</p></div><footer> <a class="rm" href="java-string-replace-method.html" onclick="ga('send', 'event', 'Related_articles', 'Java String replace(), replaceFirst() &amp; replaceAll() Method EXAMPLE', 'Java String replace(), replaceFirst() &amp; replaceAll() Method EXAMPLE');">Read more</a> </footer></article></div></div></div></div></div></div></main> </div><div class="g-block size-25"><aside id="g-aside"><div class="g-grid"><div class="g-block size-100"><div class="g-content"><div class="platform-content"><div class="moduletable "><div class="custom"><div style="display:none;"><ul class="nav menuside mod-list"> <li class="item-872"><a href="introduction-to-javascript.html">1) Introduction</a></li><li class="item-873"><a href="using-variables-in-javascript.html">2) Using Variables</a></li><li class="item-874"><a href="learn-arrays-in-javascript.html">3) Learn Arrays</a></li><li class="item-875"><a href="how-to-use-loops-in-javascript.html">4) How to use Loops</a></li><li class="item-876"><a href="how-to-use-conditional-statements-in-javascript.html">5) Conditional Statements</a></li><li class="item-877"><a href="learn-functions-in-javascript-in-5-minutes.html">6) Learn Functions</a></li><li class="item-878"><a href="cookies-in-javascript-ultimate-guide.html">7) Cookies</a></li><li class="item-879"><a href="how-to-use-dom-and-events-in-javascript.html">8) How to use DOM and Events</a></li><li class="item-880"><a href="learn-object-oriented-javascript.html">9) Object Oriented JS</a></li><li class="item-881"><a href="all-about-internal-external-javascript.html">10) All About Internal &amp; External</a></li><li class="item-882"><a href="practical-code-examples-using-javascript.html">11) Practical Code Examples</a></li><li class="item-2220"><a href="javascript-interview-questions-answers.html">12) JavaScript Interview Q &amp; A</a></li><li class="item-2245"><a href="javascript-unit-testing-frameworks.html">13) JavaScript Unit Testing Frameworks</a></li><li class="item-2047 current active"><a href="typescript-tutorial.html">14) TypeScript Tutorial</a></li><li class="item-2315"><a href="typescript-vs-javascript.html">15) Typescript vs JavaScript</a></li><li class="item-2843"><a href="difference-between-java-and-javascript.html">16) Java Vs JavaScript</a></li><li class="item-2355"><a href="quicksort-in-javascript.html">17) QuickSort Algorithm</a></li><li class="item-3067"><a href="difference-equality-strict-operator-javascript.html">18) Difference Between =, ==, and ===</a></li><li class="item-3004"><a href="best-javascript-certification-courses.html">19) JavaScript Certification Courses</a></li><li class="item-2536"><a href="javascript-tutorial-pdf.html">20) JavaScript PDF</a></li></ul></div><div class="custom"> <center><div id="div-gpt-ad-1571916596507-0" class="responsive-guru99-mobile-devices1" style="width: 300px;"> <script>googletag.cmd.push(function(){googletag.display('div-gpt-ad-1571916596507-0');});</script> </div></center> <br> <center><div id="div-gpt-ad-1571916546153-0" class="responsive-guru99-mobile-devices1" style="width: 300px;"> <script>googletag.cmd.push(function(){googletag.display('div-gpt-ad-1571916546153-0');});</script> </div></center> </div><h3 class="g-title">JavaScript Tutorials</h3><ul id="demo1" class="menuside" style="margin-left: 0;list-style: none;margin: 0px;"></ul><div class="custom"> <script src="Customization\sticky\jquery.stickyPanel.min.js"></script> <script src="Customization\sticky\sticky_ads.js"></script> <br><div id="div-gpt-ad-1543194583199-0" class="sticky responsive-guru99-mobile-devices1" style="width: 300px;"> <script>googletag.cmd.push(function(){googletag.display('div-gpt-ad-1543194583199-0');});</script> </div> </div><div class="custom"> <script src="Customization\sticky\carbon_sticky_ads.js"></script><div id="carbon-block" class="carbonadsstickyads responsive-carbonadsguru99-mobile"></div></div></div></div></div></div></div></div></aside></div></div></section><footer id="g-footer"><div class="g-container"><div class="g-grid"><div class="g-block size-100"><div class="g-content"><div class="platform-content"><div class="moduletable "><div class="custom"><div class="g-grid"><div class="g-block size-100 hidden-phone"><div class="platform-content"><div class="moduletable "><h2 style="margin: 0px;"><center>Top Tutorials</center></h2></div></div></div></div><div class="g-grid"><div class="g-block size-24"><div class="platform-content"><div class="moduletable "> <a href="https://www.facebook.com/guru99com/" style="color: #3F3F3F;background: white;font-size: 21px;border-radius: 5px;padding-right: 7px;padding-left: 7px;"><span class="fa fa-facebook"></span></a> <a href="https://twitter.com/guru99com" style="color: #3F3F3F;background: white;font-size: 21px;border-radius: 5px;margin-left: 3px;padding-right: 3px;padding-left: 3px;"><span class="fa fa-twitter"></span></a> <a href="https://www.linkedin.com/company/guru99/" style="color: #3F3F3F;background: white;font-size: 21px;border-radius: 5px;margin-left: 3px;padding-right: 3px;padding-left: 3px;"><span class="fa fa-linkedin"></span></a> <a href="https://www.youtube.com/channel/UC19i1XD6k88KqHlET8atqFQ" style="color: #3F3F3F;background: white;font-size: 21px;border-radius: 5px;margin-left: 3px;padding-right: 3px;padding-left: 3px;"><span class="fa fa-youtube-play"></span></a> <a href="https://forms.aweber.com/form/46/724807646.htm" style="color: #3F3F3F;background: white;font-size: 19px;border-radius: 5px;margin-left: 3px;padding-right: 5px;padding-left: 5px;"><span class="fa fa-envelope"></span></a> <h3 style="margin: 0px;padding-bottom:9px;padding-top:20px;">About</h3> <a href="about-us.html">About Us</a><br> <a href="advertise-us.html">Advertise with Us</a><br> <a href="become-an-instructor.html">Write For Us</a><br> <a href="contact-us.html">Contact Us</a><br><h3 style="margin: 0px;padding-bottom:9px;padding-top:20px;">Career Suggestion</h3> <a href="best-sap-module.html">SAP Career Suggestion Tool</a><br> <a href="software-testing-career-complete-guide.html">Software Testing as a Career</a><br><br> </div></div></div><div class="g-block box4 size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-code","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px;padding-top: 25px;"><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -150px;background:#ffe34c;"> <a href="selenium-tutorial.html"> <i class="fa fa-bug" style="color: #000000;font-size: 70px; line-height: 125px;padding-left:27px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="selenium-tutorial.html" style="color:#FFF;">Selenium</a></h4></div></div></div></div><div class="g-block box4 size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-code","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px; padding-top: 25px;"><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -150px;background:#ff7f50;"> <a href="software-testing.html"> <i class="fa fa-code-fork" style="color: #000000; font-size: 70px; line-height: 125px;padding-left:45px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="software-testing.html" style="color:#FFF;">Testing</a></h4></div></div></div></div><div class="g-block box4 size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-code","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px; padding-top: 25px;"><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -150px;background:#B5EAAA;"> <a href="ethical-hacking-tutorials.html"> <i class="fa fa-laptop" style="color: #000000; font-size: 70px; line-height: 125px;padding-left:27px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="ethical-hacking-tutorials.html" style="color:#FFF;">Hacking</a></h4></div></div></div></div></div><div class="g-grid"><div class="g-block size-24"><div class="platform-content"><div class="moduletable "><h3 style="margin: 0px; padding-bottom:9px;">Interesting</h3> <a href="ebook-pdf.html">eBook</a><br> <a href="blog\index.htm">Blog</a><br> <a href="tests.html">Quiz</a><br> <a href="sap-ebook-pdf.html">SAP eBook</a><br><br><br> </div></div></div><div class="g-block box4 size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-user","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px; "><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -245px;background:#72A81A;"> <a href="sap-training-hub.html"> <i class="fa fa-wrench" style="color: #000; font-size: 70px; line-height: 125px;padding-left:28px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="sap-training-hub.html" style="color:#FFF;">SAP</a></h4></div></div></div></div><div class="g-block box4 size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-user","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px; "><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -245px;background:#ED9600;"> <a href="java-tutorial.html"> <i class="fa fa-coffee" style="color: #000; font-size: 70px; line-height: 125px;padding-left:25px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="java-tutorial.html" style="color:#FFF;">Java</a></h4></div></div></div></div><div class="g-block box4 size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-code","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px;"><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -245px;background:#FFE87C;"> <a href="python-tutorials.html"> <i class="fa fa-code" style="color: #000; font-size: 70px; line-height: 125px;padding-left:27px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="python-tutorials.html" style="color:#FFF;">Python</a></h4></div></div></div></div></div><div class="g-grid execute_online"><div class="g-block size-24"><div class="platform-content"><div class="moduletable "><h3 style="margin: 0px; padding-bottom:9px;">Execute online</h3> <a href="try-java-editor.html">Execute Java Online</a><br> <a href="execute-javascript-online.html">Execute Javascript</a><br> <a href="execute-html-online.html">Execute HTML</a><br> <a href="execute-python-online.html">Execute Python</a><br> </div></div></div><div class="g-block size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-user","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px;"><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -170px;background:#2282E8;"> <a href="jmeter-tutorials.html"> <i class="fa fa-book" style="color: #000; font-size: 70px; line-height: 125px;padding-left:28px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="jmeter-tutorials.html" style="color:#FFF;">Jmeter</a></h4></div></div></div></div><div class="g-block size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-code-fork","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px;"><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -170px;background:#bba7db;"> <a href="informatica-tutorials.html"> <i class="fa fa-suitcase" style="color: #000; font-size: 70px; line-height: 125px;padding-left:27px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="informatica-tutorials.html" style="color:#FFF;">Informatica</a></h4></div></div></div></div><div class="g-block size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-code-fork","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px;"><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -170px;background:#c36241;"> <a href="jira-tutorial-a-complete-guide-for-beginners.html"> <i class="fa fa-cloud" style="color: #000; font-size: 70px; line-height: 125px;padding-left:28px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="jira-tutorial-a-complete-guide-for-beginners.html" style="color:#FFF;">JIRA</a></h4></div></div></div></div></div> <script src="Customization\footer_ads.js"></script> </div> </div></div><div class="platform-content"><div class="moduletable "><div class="custom"> </div> </div></div></div></div></div><div class="g-grid"><div class="g-block size-50 align-left"><div id="branding-9192-particle" class="g-content g-particle"><div class="g-branding "><div class="brackbranding">
+&copy; Copyright - Guru99 2020
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="privacy-policy.html" style="color:#f8f8f8;">Privacy Policy</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="affiliate-earning-disclaimer.html" style="color:#f8f8f8;">Affiliate Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="terms-of-service.html" style="color:#f8f8f8;">ToS</a> </div></div></div></div><div class="g-block size-50"><div class="spacer"></div></div></div></div></footer></div> <script src="media\plg_jchoptimize\cache\js\25304e649754bdedf61dc376182e76ea_0.js" async=""></script> </body> </html>

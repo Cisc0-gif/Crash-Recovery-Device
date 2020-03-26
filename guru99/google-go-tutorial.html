@@ -1,0 +1,840 @@
+﻿<!DOCTYPE html><html lang="en-GB" dir="ltr"><head><link href="google-go-tutorial.html" rel="canonical"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="IE=edge"><link rel="icon" type="image/x-icon" href="/images/logo/favicon1.ico"><meta charset="utf-8"><base href="https://www.guru99.com/google-go-tutorial.html"><meta name="keywords" content="bigdata, programming, database, server"><meta name="description" content="Go is a programming language created at Google in 2009 by Robert Griesemer, Rob Pike, and Ken Thompson. Go is a statically typed compiled language in the tradition of C, with memory safety, garbage co"><title>Go Programming Language Tutorial: Learn Golang with Example</title><link rel="stylesheet" href="media\plg_jchoptimize\cache\css\2529ef16a0bd444b626ff9c93a131282_0.css"> <script src="media\jui\js\jquery.min.js?5488b7157d1881abf266d97c2f1147c2"></script> <!--[if IE 8]>
+<link rel="stylesheet" href="https://www.guru99.com/modules/mod_relateditems_xtd/assets/css/ie8.css" />
+<![endif]--> <!--[if (gte IE 8)&(lte IE 9)]>
+        <script type="text/javascript" src="/media/gantry5/assets/js/html5shiv-printshiv.min.js"></script>
+        <link rel="stylesheet" href="/media/gantry5/engines/nucleus/css/nucleus-ie9.css" type="text/css"/>
+        <script type="text/javascript" src="/media/gantry5/assets/js/matchmedia.polyfill.js"></script>
+        <![endif]--><meta name="theme-color" content="#2cbaff"> <script async="async" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script> <script>var googletag=window.googletag||{cmd:[]};var gptadslots=[];var googletag=googletag||{cmd:[]};</script> <script src="//fdyn.pubwise.io/script/8e8b7267-5938-41ec-b047-b7e985fc9645/v3/dyn/pre_pws.js?type=default"></script> <script src="//fdyn.pubwise.io/script/8e8b7267-5938-41ec-b047-b7e985fc9645/v3/dyn/pws.js?type=default" async=""></script> <script>!function(a9,a,p,s,t,A,g){if(a[a9])return;function q(c,r){a[a9]._Q.push([c,r])}a[a9]={init:function(){q("i",arguments)},fetchBids:function(){q("f",arguments)},setDisplayBids:function(){},targetingKeys:function(){return[]},_Q:[]};A=p.createElement(s);A.async=!0;A.src=t;g=p.getElementsByTagName(s)[0];g.parentNode.insertBefore(A,g)}("apstag",window,document,"script","//c.amazon-adsystem.com/aax2/apstag.js");apstag.init({pubID:'0b8b4efb-a0ed-455f-9ba8-517e0c56bb55',adServer:'googletag',simplerGPT:true});googletag.cmd.push(function(){googletag.pubads().setRequestNonPersonalizedAds(0);googletag.pubads().collapseEmptyDivs(true);var mapping1=googletag.sizeMapping().addSize([1700,400],['fluid',[970,90],[970,250],[728,90]]).addSize([1024,0],[[728,90],[250,250],[336,280],[300,250]]).addSize([500,0],[[468,60],[250,250],[300,250],[336,280]]).addSize([0,0],[[320,50],[300,250],[300,50],[320,100],[250,250]]).build();var mapping2=googletag.sizeMapping().addSize([1024,0],['fluid',[336,280],[300,250],[250,250]]).addSize([500,0],[[300,250],[336,280],[250,250]]).addSize([0,0],[[320,50],[300,250],[300,50],[320,100],[250,250]]).build();var mapping3=googletag.sizeMapping().addSize([1024,0],[[300,600],[120,600],[160,600],[300,250],[336,280],[250,250]]).addSize([500,0],[[160,600],[120,600],[250,250]]).addSize([0,0],[]).build();var mapping4=googletag.sizeMapping().addSize([1024,0],[]).addSize([0,0],[[320,50],[300,50],[360,50],[400,50]]).build();gptadslots.push(googletag.defineSlot('/24132379/guru99.com_728x90','fluid','div-gpt-ad-9092914-1').setTargeting('type',['sponsored']).setTargeting('Position',['top']).setTargeting('refreshtime',['30']).defineSizeMapping(mapping1).addService(googletag.pubads()));gptadslots.push(googletag.defineSlot('/24132379/guru99.com_728x90','fluid','div-gpt-ad-9092914-2').setTargeting('type',['sponsored']).setTargeting('Position',['middle']).setTargeting('refreshtime',['30']).defineSizeMapping(mapping1).addService(googletag.pubads()));gptadslots.push(googletag.defineSlot('/24132379/guru99.com_728x90','fluid','div-gpt-ad-9092914-6').setTargeting('type',['sponsored']).setTargeting('Position',['bottom']).setTargeting('refreshtime',['30']).defineSizeMapping(mapping1).addService(googletag.pubads()));var REFRESH_KEY='refresh';var REFRESH_VALUE='true';googletag.defineSlot('/24132379/guru99.com_300x600_sticky',[[300,600],[120,600],[160,600],[300,250],[336,280],[250,250]],'div-gpt-ad-1543194583199-0').setTargeting(REFRESH_KEY,REFRESH_VALUE).setTargeting('refreshtime',['30']).defineSizeMapping(mapping3).addService(googletag.pubads());gptadslots.push(googletag.defineSlot('/24132379/guru99.com_300x250_2','fluid','div-gpt-ad-1565016699961-0').setTargeting('type',['sponsored']).setTargeting('Position',['300x250']).setTargeting(REFRESH_KEY,REFRESH_VALUE).setTargeting('refreshtime',['30']).defineSizeMapping(mapping2).addService(googletag.pubads()));gptadslots.push(googletag.defineSlot('/24132379/guru99.com_300x250_1',[[336,280],[300,250],[250,250]],'div-gpt-ad-1571916596507-0').setTargeting('type',['sponsored']).setTargeting('Position',['300x250']).setTargeting(REFRESH_KEY,REFRESH_VALUE).setTargeting('refreshtime',['30']).defineSizeMapping(mapping2).addService(googletag.pubads()));gptadslots.push(googletag.defineSlot('/24132379/guru99.com_300x250-2',[[300,250],[336,280],[250,250]],'div-gpt-ad-1571916546153-0').setTargeting('type',['sponsored']).setTargeting('Position',['300x250']).setTargeting(REFRESH_KEY,REFRESH_VALUE).setTargeting('refreshtime',['30']).defineSizeMapping(mapping2).addService(googletag.pubads()));var REFRESH_KEY='refresh';var REFRESH_VALUE='true';googletag.defineSlot('/24132379/Guru99.com_Adhesion_320x50',[[320,50],[300,50],[360,50],[400,50]],'div-gpt-ad-1558594248952-0').setTargeting(REFRESH_KEY,REFRESH_VALUE).setTargeting('refreshtime',['30']).defineSizeMapping(mapping4).addService(googletag.pubads());var SECONDS_TO_WAIT_AFTER_VIEWABILITY=30;googletag.pubads().addEventListener('impressionViewable',function(event){var slot=event.slot;if(slot.getTargeting(REFRESH_KEY).indexOf(REFRESH_VALUE)>-1){setTimeout(function(){pubwiseLazyLoad([slot]);},SECONDS_TO_WAIT_AFTER_VIEWABILITY*1000);}});apstag.fetchBids({timeout:1e3},function(bids){apstag.setDisplayBids();});googletag.enableServices();});</script> </head><body class="gantry site com_content view-article no-layout no-task dir-ltr itemid-2450 outline-9 g-offcanvas-left g-default g-style-preset4"><div id="g-offcanvas" data-g-offcanvas-swipe="0" data-g-offcanvas-css3="1"><div class="g-grid"><div class="g-block size-100"><div id="mobile-menu-7951-particle" class="g-content g-particle"><div id="g-mobilemenu-container" data-g-menu-breakpoint="48rem"></div></div></div></div></div><div id="g-page-surround"><div class="g-offcanvas-hide g-offcanvas-toggle" role="navigation" data-offcanvas-toggle="" aria-controls="g-offcanvas" aria-expanded="false"><i class="fa fa-fw fa-bars"></i></div><section id="g-top"><div class="g-container"><div class="g-grid"><div class="g-block size-100"><div class="g-system-messages"><div id="system-message-container"> </div> </div> </div> </div> </div> </section><section id="g-navigation" class="g-default-navigation"><div class="g-container"><div class="g-grid"><div class="g-block size-20"><div id="logo-8099-particle" class="g-content g-particle"> <a href="index.htm" target="_self" title="Guru99" aria-label="Guru99" rel="home" class="g-logo"> <img src="/images/logo/logo_v1.png" alt="Guru99"> </a> </div></div><div class="g-block size-80"><div id="menu-5760-particle" class="g-content g-particle"> <nav class="g-main-nav" data-g-hover-expand="true"><ul class="g-toplevel"> <li class="g-menu-item g-menu-item-type-component g-menu-item-101 g-standard  "> <a class="g-menu-item-container" href="index.htm"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Home</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-separator g-menu-item-118 g-parent g-fullwidth  " style="position: relative;"><div class="g-menu-item-container" data-g-menuparent=""> <span class="g-separator g-menu-item-content"> <span class="g-menu-item-title">Testing</span> </span> <span class="g-menu-parent-indicator"></span> </div><ul class="g-dropdown g-inactive g-fade g-dropdown-center" style="width:560px;" data-g-item-width="560px"> <li class="g-dropdown-column"><div class="g-grid"><div class="g-block size-32"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1189  "> <a class="g-menu-item-container" href="agile-testing-course.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Agile Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1103  "> <a class="g-menu-item-container" href="bugzilla-tutorial-for-beginners.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">BugZilla</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-962  "> <a class="g-menu-item-container" href="cucumber-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Cucumber</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-892  "> <a class="g-menu-item-container" href="data-testing.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Database Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-890  "> <a class="g-menu-item-container" href="utlimate-guide-etl-datawarehouse-testing.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">ETL Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-123  "> <a class="g-menu-item-container" href="jmeter-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Jmeter </span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1102  "> <a class="g-menu-item-container" href="jira-tutorial-a-complete-guide-for-beginners.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">JIRA</span> </span> </a> </li> </ul> </div><div class="g-block size-34"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1331  "> <a class="g-menu-item-container" href="junit-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">JUnit</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1032  "> <a class="g-menu-item-container" href="loadrunner-v12-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">LoadRunner</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-119  "> <a class="g-menu-item-container" href="software-testing.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title"> Manual Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-126  "> <a class="g-menu-item-container" href="mobile-testing.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Mobile Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1104  "> <a class="g-menu-item-container" href="mantis-bug-tracker-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Mantis</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2360  "> <a class="g-menu-item-container" href="postman-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Postman</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-120  "> <a class="g-menu-item-container" href="quick-test-professional-qtp-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">QTP</span> </span> </a> </li> </ul> </div><div class="g-block size-34"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-977  "> <a class="g-menu-item-container" href="hp-alm-free-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Quality Center (ALM)</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2237  "> <a class="g-menu-item-container" href="robotic-process-automation-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">RPA</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-891  "> <a class="g-menu-item-container" href="learn-sap-testing-create-your-first-sap-test-case.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SAP Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-121  "> <a class="g-menu-item-container" href="selenium-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title"> Selenium</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1073  "> <a class="g-menu-item-container" href="soapui-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SoapUI</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-871  "> <a class="g-menu-item-container" href="test-management.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Test Management</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1105  "> <a class="g-menu-item-container" href="testlink-tutorial-complete-guide.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">TestLink</span> </span> </a> </li> </ul> </div> </div> </li> </ul> </li> <li class="g-menu-item g-menu-item-type-separator g-menu-item-147 g-parent g-fullwidth  " style="position: relative;"><div class="g-menu-item-container" data-g-menuparent=""> <span class="g-separator g-menu-item-content"> <span class="g-menu-item-title">SAP</span> </span> <span class="g-menu-parent-indicator"></span> </div><ul class="g-dropdown g-inactive g-fade g-dropdown-center" style="width:480px;" data-g-item-width="480px"> <li class="g-dropdown-column"><div class="g-grid"><div class="g-block size-30"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-148  "> <a class="g-menu-item-container" href="abap-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">ABAP</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2555  "> <a class="g-menu-item-container" href="overview-of-sap-apo.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">APO</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-619  "> <a class="g-menu-item-container" href="what-is-sap.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Beginner</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-151  "> <a class="g-menu-item-container" href="sap-basis-training-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Basis</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2574  "> <a class="g-menu-item-container" href="sap-bods-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">BODS</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-915  "> <a class="g-menu-item-container" href="sap-bi.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">BI</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2461  "> <a class="g-menu-item-container" href="sap-bpc.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">BPC</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-240  "> <a class="g-menu-item-container" href="co-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">CO</span> </span> </a> </li> </ul> </div><div class="g-block size-33"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-161  "> <a class="g-menu-item-container" href="sap-crm-training.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">CRM</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2628  "> <a class="g-menu-item-container" href="crystal-reports-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Crystal Reports</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-150  "> <a class="g-menu-item-container" href="sap-fico-training-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">FICO</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1326  "> <a class="g-menu-item-container" href="sap-hana-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">HANA</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-149  "> <a class="g-menu-item-container" href="sap-hcm.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">HR</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-162  "> <a class="g-menu-item-container" href="sap-mm-training-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">MM</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1340  "> <a class="g-menu-item-container" href="sap-quality-management-qm-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">QM</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-241  "> <a class="g-menu-item-container" href="sap-payroll.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Payroll</span> </span> </a> </li> </ul> </div><div class="g-block size-37"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2448  "> <a class="g-menu-item-container" href="sap-pi-process-integration-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">PI/PO</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1281  "> <a class="g-menu-item-container" href="sap-pp-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">PP</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-152  "> <a class="g-menu-item-container" href="free-sap-sd-training-course.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SD</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2449  "> <a class="g-menu-item-container" href="sapui5-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SAPUI5</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2462  "> <a class="g-menu-item-container" href="overview-of-sap-security.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Security</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2463  "> <a class="g-menu-item-container" href="overview-of-sap-solution-manager.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Solution Manager</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2786  "> <a class="g-menu-item-container" href="sap-successfactor.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Successfactors</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1803  "> <a class="g-menu-item-container" href="sap-training-hub.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SAP Tutorials</span> </span> </a> </li> </ul> </div> </div> </li> </ul> </li> <li class="g-menu-item g-menu-item-type-separator g-menu-item-127 g-parent g-fullwidth  " style="position: relative;"><div class="g-menu-item-container" data-g-menuparent=""> <span class="g-separator g-menu-item-content"> <span class="g-menu-item-title">Web</span> </span> <span class="g-menu-parent-indicator"></span> </div><ul class="g-dropdown g-inactive g-fade g-dropdown-center" style="width:560px;" data-g-item-width="560px"> <li class="g-dropdown-column"><div class="g-grid"><div class="g-block size-25"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-870  "> <a class="g-menu-item-container" href="apache.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Apache</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2101  "> <a class="g-menu-item-container" href="android-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Android</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1361  "> <a class="g-menu-item-container" href="angularjs-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">AngularJS</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1540  "> <a class="g-menu-item-container" href="asp-net-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">ASP.Net</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2126  "> <a class="g-menu-item-container" href="c-programming-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">C</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1518  "> <a class="g-menu-item-container" href="c-sharp-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">C#</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2554  "> <a class="g-menu-item-container" href="cpp-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">C++</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1937  "> <a class="g-menu-item-container" href="codeigniter-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">CodeIgniter</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2313  "> <a class="g-menu-item-container" href="dbms-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">DBMS</span> </span> </a> </li> </ul> </div><div class="g-block size-25"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-146  "> <a class="g-menu-item-container" href="java-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Java</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-884  "> <a class="g-menu-item-container" href="interactive-javascript-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">JavaScript</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1328  "> <a class="g-menu-item-container" href="jsp-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">JSP</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2824  "> <a class="g-menu-item-container" href="kotlin-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Kotlin</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-131  "> <a class="g-menu-item-container" href="unix-linux-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Linux</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2648  "> <a class="g-menu-item-container" href="mariadb-tutorial-install.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">MariaDB</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2634  "> <a class="g-menu-item-container" href="ms-access-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">MS Access</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1645  "> <a class="g-menu-item-container" href="mysql-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">MYSQL</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1370  "> <a class="g-menu-item-container" href="node-js-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Node.js</span> </span> </a> </li> </ul> </div><div class="g-block size-25"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-129  "> <a class="g-menu-item-container" href="perl-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Perl</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-128  "> <a class="g-menu-item-container" href="php-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">PHP</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1306  "> <a class="g-menu-item-container" href="pl-sql-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">PL/SQL</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1940  "> <a class="g-menu-item-container" href="postgresql-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">PostgreSQL</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1215  "> <a class="g-menu-item-container" href="python-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Python</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2736  "> <a class="g-menu-item-container" href="reactjs-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">ReactJS</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2689  "> <a class="g-menu-item-container" href="ruby-on-rails-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Ruby &amp; Rails</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2737  "> <a class="g-menu-item-container" href="scala-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Scala</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-130  "> <a class="g-menu-item-container" href="sql.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SQL</span> </span> </a> </li> </ul> </div><div class="g-block size-25"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2024  "> <a class="g-menu-item-container" href="ms-sql-server-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SQL Server</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1330  "> <a class="g-menu-item-container" href="sqlite-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SQLite</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2614  "> <a class="g-menu-item-container" href="uml-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">UML</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2031  "> <a class="g-menu-item-container" href="vb-net-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">VB.Net</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-808  "> <a class="g-menu-item-container" href="vbscript-tutorials-for-beginners.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">VBScript</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1470  "> <a class="g-menu-item-container" href="web-services-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Web Services</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2630  "> <a class="g-menu-item-container" href="wpf-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">WPF</span> </span> </a> </li> </ul> </div> </div> </li> </ul> </li> <li class="g-menu-item g-menu-item-type-separator g-menu-item-844 g-parent active g-fullwidth  " style="position: relative;"><div class="g-menu-item-container" data-g-menuparent=""> <span class="g-separator g-menu-item-content"> <span class="g-menu-item-title">Must Learn!</span> </span> <span class="g-menu-parent-indicator"></span> </div><ul class="g-dropdown g-inactive g-fade g-dropdown-center" style="width:540px;" data-g-item-width="540px"> <li class="g-dropdown-column"><div class="g-grid"><div class="g-block size-34"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-133  "> <a class="g-menu-item-container" href="accounting.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Accounting</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2082  "> <a class="g-menu-item-container" href="design-analysis-algorithms-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Algorithms</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2426  "> <a class="g-menu-item-container" href="blockchain-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Blockchain</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1190  "> <a class="g-menu-item-container" href="business-analyst-tutorial-course.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Business Analyst</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2778  "> <a class="g-menu-item-container" href="best-domain-name-generators.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Build Website</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1541  "> <a class="g-menu-item-container" href="introduction-ccna.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">CCNA</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-916  "> <a class="g-menu-item-container" href="cloud-computing-for-beginners.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Cloud Computing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-3002  "> <a class="g-menu-item-container" href="learn-cobol-programming-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">COBOL</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1921  "> <a class="g-menu-item-container" href="compiler-design-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Compiler Design</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2790  "> <a class="g-menu-item-container" href="embedded-systems-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Embedded Systems</span> </span> </a> </li> </ul> </div><div class="g-block size-31"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-845  "> <a class="g-menu-item-container" href="ethical-hacking-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Ethical Hacking</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1135  "> <a class="g-menu-item-container" href="excel-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Excel Tutorials</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2450 active  "> <a class="g-menu-item-container" href="google-go-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Go Programming</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2807  "> <a class="g-menu-item-container" href="iot-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">IoT</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-3003  "> <a class="g-menu-item-container" href="itil-framework-process.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">ITIL</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1935  "> <a class="g-menu-item-container" href="jenkins-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Jenkins</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1332  "> <a class="g-menu-item-container" href="mis-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">MIS</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2043  "> <a class="g-menu-item-container" href="data-communication-computer-network-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Networking</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2631  "> <a class="g-menu-item-container" href="operating-system-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Operating System</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2979  "> <a class="g-menu-item-container" href="free-online-course-with-certificate.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Prep</span> </span> </a> </li> </ul> </div><div class="g-block size-35"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1329  "> <a class="g-menu-item-container" href="pmp-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">PMP</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-933  "> <a class="g-menu-item-container" href="photoshop-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Photoshop</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1256  "> <a class="g-menu-item-container" href="project-management-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Project Management</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2464  "> <a class="g-menu-item-container" href="best-hard-disks.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Reviews</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2787  "> <a class="g-menu-item-container" href="salesforce-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Salesforce</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2825  "> <a class="g-menu-item-container" href="seo-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">SEO</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2054  "> <a class="g-menu-item-container" href="software-engineering-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Software Engineering</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1333  "> <a class="g-menu-item-container" href="vba-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">VBA</span> </span> </a> </li> </ul> </div> </div> </li> </ul> </li> <li class="g-menu-item g-menu-item-type-separator g-menu-item-1400 g-parent g-fullwidth  " style="position: relative;"><div class="g-menu-item-container" data-g-menuparent=""> <span class="g-separator g-menu-item-content"> <span class="g-menu-item-title">Big Data</span> </span> <span class="g-menu-parent-indicator"></span> </div><ul class="g-dropdown g-inactive g-fade g-dropdown-center" style="width:450px;" data-g-item-width="450px"> <li class="g-dropdown-column"><div class="g-grid"><div class="g-block size-38"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1474  "> <a class="g-menu-item-container" href="aws-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">AWS</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-963  "> <a class="g-menu-item-container" href="bigdata-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">BigData</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1327  "> <a class="g-menu-item-container" href="cassandra-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Cassandra</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2806  "> <a class="g-menu-item-container" href="cognos-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Cognos</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1898  "> <a class="g-menu-item-container" href="data-warehousing-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Data Warehousing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2200  "> <a class="g-menu-item-container" href="devops-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">DevOps</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1289  "> <a class="g-menu-item-container" href="hbase-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">HBase</span> </span> </a> </li> </ul> </div><div class="g-block size-32"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1321  "> <a class="g-menu-item-container" href="hive-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Hive</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1245  "> <a class="g-menu-item-container" href="informatica-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Informatica</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2805  "> <a class="g-menu-item-container" href="microstrategy-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">MicroStrategy</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1314  "> <a class="g-menu-item-container" href="mongodb-tutorials.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">MongoDB</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2556  "> <a class="g-menu-item-container" href="apache-nifi-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">NiFi</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2803  "> <a class="g-menu-item-container" href="obiee-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">OBIEE</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2802  "> <a class="g-menu-item-container" href="pentaho-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Pentaho</span> </span> </a> </li> </ul> </div><div class="g-block size-30"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2795  "> <a class="g-menu-item-container" href="power-bi-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Power BI</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2804  "> <a class="g-menu-item-container" href="qlikview-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Qlikview</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1942  "> <a class="g-menu-item-container" href="tableau-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Tableau</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2471  "> <a class="g-menu-item-container" href="talend-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Talend</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2557  "> <a class="g-menu-item-container" href="zookeeper-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">ZooKeeper</span> </span> </a> </li> </ul> </div> </div> </li> </ul> </li> <li class="g-menu-item g-menu-item-type-separator g-menu-item-508 g-parent g-fullwidth  " style="position: relative;"><div class="g-menu-item-container" data-g-menuparent=""> <span class="g-separator g-menu-item-content"> <span class="g-menu-item-title">Live Projects</span> </span> <span class="g-menu-parent-indicator"></span> </div><ul class="g-dropdown g-inactive g-fade g-dropdown-center" style="width:400px;" data-g-item-width="400px"> <li class="g-dropdown-column"><div class="g-grid"><div class="g-block size-50"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1043  "> <a class="g-menu-item-container" href="live-agile-testing-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Agile Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-995  "> <a class="g-menu-item-container" href="live-interactive-exercise-hp-alm.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live HP ALM</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1879  "> <a class="g-menu-item-container" href="live-java-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Java Project</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1194  "> <a class="g-menu-item-container" href="live-mobile-testing-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Mobile Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1768  "> <a class="g-menu-item-container" href="live-payment-gateway-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Payment Gateway</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-937  "> <a class="g-menu-item-container" href="live-php-project-learn-complete-web-development-cycle.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live PHP Project</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1802  "> <a class="g-menu-item-container" href="live-projects.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Projects Hub</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2776  "> <a class="g-menu-item-container" href="live-python-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Python Project</span> </span> </a> </li> </ul> </div><div class="g-block size-50"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-887  "> <a class="g-menu-item-container" href="live-selenium-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Selenium Project</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1060  "> <a class="g-menu-item-container" href="live-ecommerce-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Selenium 2</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1046  "> <a class="g-menu-item-container" href="live-penetration-testing-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Security Testing</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-758  "> <a class="g-menu-item-container" href="live-testing-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Testing Project</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1195  "> <a class="g-menu-item-container" href="live-insurance-testing-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Testing 2</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1769  "> <a class="g-menu-item-container" href="live-telecom-project.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live Telecom</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-964  "> <a class="g-menu-item-container" href="live-uft-testing.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Live UFT/QTP Testing</span> </span> </a> </li> </ul> </div> </div> </li> </ul> </li> <li class="g-menu-item g-menu-item-type-separator g-menu-item-2316 g-parent g-fullwidth  " style="position: relative;"><div class="g-menu-item-container" data-g-menuparent=""> <span class="g-separator g-menu-item-content"> <span class="g-menu-item-title">AI</span> </span> <span class="g-menu-parent-indicator"></span> </div><ul class="g-dropdown g-inactive g-fade g-dropdown-center" style="width:360px;" data-g-item-width="360px"> <li class="g-dropdown-column"><div class="g-grid"><div class="g-block size-52"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2032  "> <a class="g-menu-item-container" href="artificial-intelligence-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Artificial Intelligence</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2546  "> <a class="g-menu-item-container" href="data-science-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Data Science</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2324  "> <a class="g-menu-item-container" href="keras-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Keras</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2303  "> <a class="g-menu-item-container" href="nltk-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">NLTK</span> </span> </a> </li> </ul> </div><div class="g-block size-48"><ul class="g-sublevel"> <li class="g-level-1 g-go-back"> <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2061  "> <a class="g-menu-item-container" href="numpy-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">NumPy</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-2551  "> <a class="g-menu-item-container" href="pytorch-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">PyTorch</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1941  "> <a class="g-menu-item-container" href="r-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">R Programming</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-1909  "> <a class="g-menu-item-container" href="tensorflow-tutorial.html"> <span class="g-menu-item-content"> <span class="g-menu-item-title">TensorFlow</span> </span> </a> </li> </ul> </div> </div> </li> </ul> </li> <li class="g-menu-item g-menu-item-type-component g-menu-item-134 g-standard  "> <a class="g-menu-item-container" href="blog\index.htm"> <span class="g-menu-item-content"> <span class="g-menu-item-title">Blog</span> </span> </a> </li> <li class="g-menu-item g-menu-item-type-particle g-menu-item---module-p44Zi g-standard  "><div class="g-menu-item-container" data-g-menuparent=""><div class="menu-item-particle"><div class="platform-content"><div class="moduletable "><div class="custom"><div id="gsearch"> <gcse:search></gcse:search> </div> </div> </div></div></div></div></li> </ul> </nav> </div> </div> </div> </div> </section><section id="g-container-main" class="g-wrapper"><div class="g-grid"><div class="g-block size-75"> <main id="g-mainbar"><div class="g-grid"><div class="g-block size-100"><div class="g-content"><div class="platform-content row-fluid"><div class="span12"><div class="item-page" itemscope="" itemtype="https://schema.org/Article"><meta itemprop="inLanguage" content="en-GB"><div class="page-header"><h1 itemprop="headline"> Go Programming Language Tutorial: Learn Golang with Example </h1></div><dl class="article-info muted"> <dt class="article-info-term"> Details </dt><dd class="modified"> <span class="icon-calendar" aria-hidden="true"></span> <time datetime="2020-01-20T21:30:01+05:30" itemprop="dateModified"> Last Updated: 20 January 2020 </time> </dd> </dl><div itemprop="articleBody"><div><div style="float:left;padding-right:6px;" class="top-ads-boxes"><div id="div-gpt-ad-1565016699961-0"> <script>googletag.cmd.push(function(){googletag.display('div-gpt-ad-1565016699961-0');});</script> </div> </div></div><h2><a id="1"></a>What is Go?</h2><p>Go (also known as Golang) is an open source programming language developed by Google. It is a statically-typed compiled language. Go supports concurrent programming, i.e. it allows running multiple processes simultaneously. This is achieved using channels, goroutines, etc. Go has garbage collection which itself does the memory management and allows the deferred execution of functions. <div class="moduletable"><div class="custom"> </div> </div> <br><br><br><br><div class="toc_container"> <center><span><strong>What You Will Learn:</strong> <span class="toc_toggle">[<a id="toggler" onclick="showme('widget', this.id);" style="cursor: pointer;">hide</a>]</span></span></center><div id="widget" style="display:block;"><ul> <li><a href="#1">What is Go? </a></li> <li><a href="#2">How to Download and install GO </a> </li> <li><a href="#3">Your First Go program </a> </li> <li><a href="#4">Data Types </a> </li> <li><a href="#5">Variables </a> </li> <li><a href="#6">Constants </a> </li> <li><a href="#7">Loops </a> </li> <li><a href="#8">If else </a> </li> <li><a href="#9">Switch </a> </li> <li><a href="#10">Arrays </a> </li> <li><a href="#11">Slice </a> </li> <li><a href="#12">Functions </a> </li> <li><a href="#13">Packages </a> </li> <li><a href="#14">Defer and stacking defers </a> </li> <li><a href="#15">Pointers </a> </li> <li><a href="#16">Structures </a> </li> <li><a href="#17">Methods(not functions) </a> </li> <li><a href="#18">Concurrency </a> </li> <li><a href="#19">Goroutines </a> </li> <li><a href="#20">Channels </a> </li> <li><a href="#21">Select </a> </li> <li><a href="#22">Mutex </a> </li> <li><a href="#23">Error handling </a> </li> <li><a href="#24">Custom errors </a> </li> <li><a href="#25">Reading files </a> </li> <li><a href="#26">Writing files </a> </li> <li><a href="#27">Cheat Sheet </a> </li> </ul> </div></div><h2><a id="2"></a>How to Download and install GO</h2><p><strong>Step 1)</strong> Go to <a href="https://golang.org/dl/">https://golang.org/dl/</a>. Download the binary for your OS. <p style="text-align: center;"><a href="/images/1/020819_0833_GoProgrammi1.png" class="jh-image-popup-colorbox"><img src="/images/1/020819_0833_GoProgrammi1.png" alt=""></a> <p><strong>Step 2) </strong>Double click on the installer and click Run. <p style="text-align: center;"><a href="/images/1/020819_0833_GoProgrammi2.png" class="jh-image-popup-colorbox"><img src="/images/1/020819_0833_GoProgrammi2.png" alt=""></a> <p><strong>Step 3) </strong>Click Next <p style="text-align: center;"><a href="/images/1/020819_0833_GoProgrammi3.png" class="jh-image-popup-colorbox"><img src="/images/1/020819_0833_GoProgrammi3.png" alt=""></a> <p><strong>Step 4) </strong>Select the installation folder and click Next. <p style="text-align: center;"><a href="/images/1/020819_0833_GoProgrammi4.png" class="jh-image-popup-colorbox"><img src="/images/1/020819_0833_GoProgrammi4.png" alt=""></a> <p><strong>Step 5) </strong>Click Finish once the installation is complete. <p style="text-align: center;"><a href="/images/1/020819_0833_GoProgrammi5.png" class="jh-image-popup-colorbox"><img src="/images/1/020819_0833_GoProgrammi5.png" alt=""></a> <p><strong>Step 6) </strong>Once the installation is complete you can verify it by opening the terminal and typing <pre>go version</pre><p>This will display the version of go installed <p style="text-align: center;"><a href="/images/1/020819_0833_GoProgrammi6.png" class="jh-image-popup-colorbox"><img src="/images/1/020819_0833_GoProgrammi6.png" alt=""></a> <h2><a id="3"></a>Your First Go program </h2><p>Create a folder called studyGo. You will create our go programs inside this folder. Go files are created with the extension <strong>.go</strong>. You can run Go programs using the syntax<div><div id="div-gpt-ad-9092914-1"> <script>googletag.cmd.push(function(){googletag.display('div-gpt-ad-9092914-1');});</script> </div> </div> <pre>go run &lt;filename&gt;</pre><p>Create a file called first.go and add the below code into it and save <pre>
+package main
+import ("fmt")
+
+func main() {
+	fmt.Println("Hello World! This is my first Go program\n")
+}
+</pre><p style="text-align: center;"><a href="/images/1/020819_0833_GoProgrammi7.png" class="jh-image-popup-colorbox"><img src="/images/1/020819_0833_GoProgrammi7.png" alt=""></a> <p>Navigate to this folder in your terminal. Run the program using the command <p> go run first.go <p>You can see the output printing <pre>Hello World! This is my first Go program</pre><p style="text-align: center;"><a href="/images/1/020819_0833_GoProgrammi8.png" class="jh-image-popup-colorbox"><img src="/images/1/020819_0833_GoProgrammi8.png" alt=""></a> <p>Now let's discuss the above program. <p>package main - Every go program should start with a package name. Go allows us to use packages in another go programs and hence supports code reusability. Execution of a go program begins with the code inside the package named main. <p>import fmt - imports the package fmt. This package implements the I/O functions. <p>func main() - This is the function from which program execution begins. The main function should always be placed in the main package. Under the main(), You can write the code inside { }. <p>fmt.Println - This will print the text on the screen by the Println function of fmt. <p>Note: In the below sections when You mention execute/run the code, it means to save the code in a file with .go extension and run it using the syntax <pre>    go run &lt;filename&gt;</pre><h2><a id="4"></a>Data Types</h2><p>Types(data types) represent the type of the value stored in a variable, type of the value a function returns, etc. <p>There are three basic types in Go. <p><strong>Numeric types</strong> - Represent numeric values which includes integer, floating point, and complex values. Various numeric types are: <p>int8 - 8 bit signed integers. <p>int16 - 16 bit signed integers. <p>int32 - 32 bit signed integers. <p>int64 - 64 bit signed integers.<div><div id="div-gpt-ad-9092914-2"> <script>googletag.cmd.push(function(){googletag.display('div-gpt-ad-9092914-2');});</script> </div> </div><p>uint8 - 8 bit unsigned integers. <p>uint16 - 16 bit unsigned integers. <p>uint32 - 32 bit unsigned integers. <p>uint64 - 64 bit unsigned integers. <p>float32 - 32 bit floating point numbers. <p>float64 - 64 bit floating point numbers. <p>complex64 – has float32 real and imaginary parts. <p>complex128 - has float32 real and imaginary parts. <p><strong>String types</strong> - Represents a sequence of bytes(characters). You can do various operations on strings like string concatenation, extracting substring, etc <p><strong>Boolean types</strong> - Represents 2 values, either true or false. <h2><a id="5"></a>Variables</h2><p>Variables point to a memory location which stores some kind of value. The type parameter(in the below syntax) represents the type of value that can be stored in the memory location. <p>Variable can be declared using the syntax <pre>    var &lt;variable_name&gt; &lt;type&gt;</pre><p>Once You declare a variable of a type You can assign the variable to any value of that type. <p>You can also give an initial value to a variable during the declaration itself using <pre>    var &lt;variable_name&gt; &lt;type&gt; = &lt;value&gt;
+</pre><p>If You declare the variable with an initial value, Go an infer the type of the variable from the type of value assigned. So You can omit the type during the declaration using the syntax <pre>    var &lt;variable_name&gt; = &lt;value&gt;</pre><p>Also, You can declare multiple variables with the syntax <pre>    var &lt;variable_name1&gt;, &lt;variable_name2&gt;  = &lt;value1&gt;, &lt;value2&gt;</pre><p>The program below has some examples of variable declarations <pre> 
+package main
+import "fmt"
+
+func main() {
+    //declaring a integer variable x
+    var x int
+    x=3 //assigning x the value 3 
+    fmt.Println("x:", x) //prints 3
+    
+    //declaring a integer variable y with value 20 in a single statement and prints it
+    var y int=20
+    fmt.Println("y:", y)
+    
+    //declaring a variable z with value 50 and prints it
+    //Here type int is not explicitly mentioned 
+    var z=50
+    fmt.Println("z:", z)
+    
+    //Multiple variables are assigned in single line- i with an integer and j with a string
+    var i, j = 100,"hello"
+    fmt.Println("i and j:", i,j)
+}
+</pre><p>The output will be <pre>
+x: 3
+y: 20
+z: 50
+i and j: 100 hello
+</pre><p>Go also provides an easy way of declaring the variables with value by omitting the var keyword using<div><div id="div-gpt-ad-9092914-6"><script>googletag.cmd.push(function(){googletag.display('div-gpt-ad-9092914-6');});</script></div></div><pre>    &lt;variable_name&gt; := &lt;value&gt;</pre><p>Note that You used <strong>:=</strong> instead of <strong>=</strong>. You cannot use := just to assign a value to a variable which is already declared. := is used to declare and assign value. <p>Create a file called assign.go with the following code <pre>
+package main
+import ("fmt")
+
+func main() {
+	a := 20
+	fmt.Println(a)
+
+	//gives error since a is already declared
+	a := 30
+	fmt.Println(a)
+}
+</pre><p>Execute go run assign.go to see the result as <pre>./assign.go:7:4: no new variables on left side of :=		
+</pre><p>Variables declared without an initial value will have of 0 for numeric types, false for Boolean and empty string for strings <h2><a id="6"></a>Constants</h2><p>Constant variables are those variables whose value cannot be changed once assigned. A constant in Go is declared by using the keyword "const" <p>Create a file called constant.go and with the following code <pre>
+package main
+import ("fmt")
+
+func main() {
+	const b =10
+	fmt.Println(b)
+	b = 30
+	fmt.Println(b)
+}
+</pre><p>Execute go run constant.go to see the result as <pre>.constant.go:7:4: cannot assign to b
+</pre><h2><a id="7"></a>Loops </h2><p>Loops are used to execute a block of statements repeatedly based on a condition. Most of the programming languages provide 3 types of loops - for, while, do while. <strong>But Go supports only for loop.</strong> <p>The syntax of a for loop is <pre>for initialisation_expression; evaluation_expression; iteration_expression{
+   // one or more statement
+}
+</pre><p>The initialisation_expression is executed first(and only once). <p>Then the evaluation_expression is evaluated and if it's true the code inside the block is executed. <p>The iteration_expression id is executed, and the evaluation_expression is evaluated again. If it's true the statement block gets executed again. This will continue until the evaluation_expression becomes false. <p>Copy the below program into a file and execute it to see the for loop printing numbers from 1 to 5 <pre>
+package main
+import "fmt"
+
+func main() {  
+var i int
+for i = 1; i &lt;= 5; i++ {
+fmt.Println(i)
+    }
+}
+</pre><p>Output is <pre>1
+2
+3
+4
+5
+</pre><h2><a id="8"></a>If else</h2><p>If else is a conditional statement. The synax is <pre>if condition{
+// statements_1
+}else{
+// statements_2
+}
+</pre><p>Here the condition is evaluated and if it's true statements_1 will be executed else statements_2 will be executed. <p>You can use if statement without else also. You also can have chained if else statements. The below programs will explain more about if else. <p>Execute the below program. It checks if a number, x, is less than 10. If so, it will print "x is less than 10" <pre>
+package main
+import "fmt"
+
+func main() {  
+    var x = 50
+    if x &lt; 10 {
+        //Executes if x &lt; 10
+        fmt.Println("x is less than 10")
+    } 
+}
+</pre><p>Here since the value of x is greater than 10, the statement inside if block condition will not executed. <p>Now see the below program. We have an else block which will get executed on the failure of if evaluation. <pre>
+package main
+import "fmt"
+
+func main() {  
+    var x = 50
+    if x &lt; 10 {
+        //Executes if x is less than 10
+        fmt.Println("x is less than 10")
+    } else {
+        //Executes if x &gt;= 10
+        fmt.Println("x is greater than or equals 10")
+    }
+}
+</pre><p>This program will give you output <pre>x is greater than or equals 10</pre><p>Now we will see a program with multiple if else blocks(chained if else).Execute the below example. It checks whether a number is less than 10 or is between 10-90 or greater than 90. <pre>
+package main
+import "fmt"
+
+func main() {  
+    var x = 100
+    if x &lt; 10 {
+        //Executes if x is less than 10
+        fmt.Println("x is less than 10")
+    } else if x &gt;= 10 && x &lt;= 90 {
+        //Executes if x &gt;= 10 and x&lt;=90
+        fmt.Println("x is between 10 and 90")
+    } else {
+        //Executes if both above cases fail i.e x>90
+        fmt.Println("x is greater than 90")
+    }
+}
+</pre><p>Here first the if condition checks whether x is less than 10 and it's not. So it checks the next condition(else if) whether it's between 10 and 90 which is also false. So it then executes the block under the else section which gives the output <pre>x is greater than 90</pre><h2><a id="9"></a>Switch</h2><p>Switch is another conditional statement. Switch statements evaluate an expression and the result is compared against a set of available values(cases). Once a match is found the statements associated with that match(case) is executed. If no match is found nothing will be executed. You can also add a default case to switch which will be executed if no other matches are found. The syntax of the switch is <pre>switch expression {
+    case value_1:
+        statements_1
+    case value_2:
+        statements_2
+    case value_n:
+        statements_n
+    default:
+        statements_default
+    }
+</pre><p>Here the value of the expression is compared against the values in each case. Once a match is found the statements associated with that case is executed. If no match is found the statements under the default section is executed. <p>Execute the below program <pre>
+package main
+import "fmt"
+
+func main() {  
+    a,b := 2,1
+    switch a+b {
+    case 1:
+        fmt.Println("Sum is 1")
+    case 2:
+        fmt.Println("Sum is 2")
+    case 3:
+        fmt.Println("Sum is 3")
+    default:
+        fmt.Println("Printing default")
+    }
+}
+</pre><p>You will get the output as <pre>Sum is 3		
+</pre><p>Change the value of a and b to 3 and the result will be <pre>Printing default
+</pre><p>You can also have multiple values in a case by separating them with a comma. <h2><a id="10"></a>Arrays</h2><p>Array represents a fixed size, named sequence of elements of the same type. You cannot have an array which contains both integer and characters in it. You cannot change the size of an array once You define the size. <p>The syntax for declaring an array is <pre>var arrayname [size] type</pre><p>Each array element can be assigned value using the syntax <pre>arrayname [index] = value</pre><p>Array index starts from <strong>0 to size-1</strong>. <p>You can assign values to array elements during declaration using the syntax <pre>arrayname := [size] type {value_0,value_1,…,value_size-1} </pre><p>You can also ignore the size parameter while declaring the array with values by replacing size with <strong>…</strong> and the compiler will find the length from the number of values. Syntax is <pre>arrayname :=  […] type {value_0,value_1,…,value_size-1}</pre><p>You can find the length of the array by using the syntax <pre>len(arrayname)</pre><p>Execute the below example to understand the array <pre>
+package main
+import "fmt"
+
+func main() {  
+    var numbers [3] string //Declaring a string array of size 3 and adding elements 
+    numbers[0] = "One"
+    numbers[1] = "Two"
+    numbers[2] = "Three"
+    fmt.Println(numbers[1]) //prints Two
+    fmt.Println(len(numbers)) //prints 3
+    fmt.Println(numbers) // prints [One Two Three]
+
+    directions := [...] int {1,2,3,4,5} // creating an integer array and the size of the array is defined by the number of elements 
+    fmt.Println(directions) //prints [1 2 3 4 5]
+    fmt.Println(len(directions)) //prints 5
+
+    //Executing the below commented statement prints invalid array index 5 (out of bounds for 5-element array)
+    //fmt.Println(directions[5]) 
+}
+</pre><p><strong>Output</strong> <pre>Two
+3
+[One Two Three]
+[1 2 3 4 5]
+5
+</pre><h2><a id="11"></a>Slice</h2><p>A slice is a portion or segment of an array. Or it is a view or partial view of an underlying array to which it points. You can access the elements of a slice using the slice name and index number just as you do in an array. You cannot change the length of an array, but you can change the size of a slice. <p>Contents of a slice are actually the pointers to the elements of an array. It means <strong>if you change any element in a slice, the underlying array contents also will be affected.</strong> <p>The syntax for creating a slice is <pre>var slice_name [] type = array_name[start:end]
+</pre><p>This will create a slice named slice_name from an array named array_name with the elements at the index start to end-1. <p>Execute the below program. The program will create a slice from the array and print it. Also, you can see that modifying the contents in the slice will modify the actual array. <pre>
+package main
+import "fmt"
+
+func main() {  
+    // declaring array
+    a := [5] string {"one", "two", "three", "four", "five"}
+    fmt.Println("Array after creation:",a)
+
+    var b [] string = a[1:4] //created a slice named b
+    fmt.Println("Slice after creation:",b)
+
+    b[0]="changed" // changed the slice data
+    fmt.Println("Slice after modifying:",b)
+    fmt.Println("Array after slice modification:",a)
+}
+</pre><p>This will print result as <pre>Array after creation: [one two three four five]
+Slice after creation: [two three four]
+Slice after modifying: [changed three four]
+Array after slice modification: [one changed three four five]
+</pre><p>There are certain functions which you can apply on slices <p><strong>len(slice_name)</strong> - returns the length of the slice <p><strong>append(slice_name, value_1, value_2)</strong> - It is used to append value_1 and value_2 to an existing slice. <p><strong>append(slice_nale1,slice_name2…)</strong> – appends slice_name2 to slice_name1 <p>Execute the following program. <pre>
+package main
+import "fmt"
+
+func main() {  
+	a := [5] string {"1","2","3","4","5"}
+	slice_a := a[1:3]
+	b := [5] string {"one","two","three","four","five"}
+	slice_b := b[1:3]
+
+    fmt.Println("Slice_a:", slice_a)
+    fmt.Println("Slice_b:", slice_b)
+    fmt.Println("Length of slice_a:", len(slice_a))
+    fmt.Println("Length of slice_b:", len(slice_b))
+
+    slice_a = append(slice_a,slice_b...) // appending slice
+    fmt.Println("New Slice_a after appending slice_b :", slice_a)
+    
+    slice_a = append(slice_a,"text1") // appending value
+    fmt.Println("New Slice_a after appending text1 :", slice_a)
+}
+</pre><p>The output will be <pre>Slice_a: [2 3]
+Slice_b: [two three]
+Length of slice_a: 2
+Length of slice_b: 2
+New Slice_a after appending slice_b : [2 3 two three]
+New Slice_a after appending text1 : [2 3 two three text1]
+</pre><p>The program first creates 2 slices and printed its length. Then it appended one slice to other and then appended a string to the resulting slice. <h2><a id="12"></a>Functions</h2><p>A function represents a block of statements which performs a specific task. A function declaration tells us function name, return type and input parameters. Function definition represents the code contained in the function. The syntax for declaring the function is <pre>func function_name(parameter_1 type, parameter_n type) return_type {
+//statements
+}
+</pre><p>The parameters and return types are optional. Also, you can return multiple values from a function. <p>Let's run the following example. Here function named calc will accept 2 numbers and performs the addition and subtraction and returns both values. <pre>
+package main
+import "fmt"
+
+//calc is the function name which accepts two integers num1 and num2
+//(int, int) says that the function returns two values, both of integer type.
+func calc(num1 int, num2 int)(int, int) {  
+    sum := num1 + num2
+    diff := num1 - num2
+    return sum, diff
+}
+
+func main() {  
+    x,y := 15,10
+
+    //calls the function calc with x and y an d gets sum, diff as output
+    sum, diff := calc(x,y) 
+    fmt.Println("Sum",sum)
+    fmt.Println("Diff",diff) 
+}
+</pre><p>The output will be <pre>Sum 25
+Diff 5
+</pre><h2><a id="13"></a>Packages</h2><p>Packages are used to organize the code. In a big project, it is not feasible to write code in a single file. Go allow us to organize the code under different packages. This increases code readability and reusability. An executable Go program should contain a package named main and the program execution starts from the function named main. You can import other packages in our program using the syntax <pre>import package_name
+</pre><p>We will see and discuss how to create and use packages in the following example. <p><strong>Step 1)</strong> Create a file called package_example.go and add the below code <pre>
+package main
+import "fmt"
+//the package to be created
+import "calculation"
+
+func main() {  
+	x,y := 15,10
+	//the package will have function Do_add()
+sum := calculation.Do_add(x,y)
+fmt.Println("Sum",sum) 
+}
+</pre><p>In the above program fmt is a package which Go provides us mainly for I/O purposes. Also, you can see a package named calculation. Inside the main() you can see a step sum := calculation.Do_add(x,y). It means you are invoking the function Do_add from package calculation. <p><strong>Step 2)</strong> First, you should create the package calculation inside a folder with the same name under src folder of the go. The installed path of go can be found from the PATH variable. <p>For mac, find the path by executing echo $PATH <p style="text-align: center;"><a href="/images/1/020819_0833_GoProgrammi9.png" class="jh-image-popup-colorbox"><img src="/images/1/020819_0833_GoProgrammi9.png" alt=""></a> <p>So the path is /usr/local/go <p>For windows, find the path by executing echo %GOROOT% <p style="text-align: center;"><a href="/images/1/020819_0833_GoProgrammi11.png" class="jh-image-popup-colorbox"><img src="/images/1/020819_0833_GoProgrammi11.png" alt=""></a> <p>Here the path is C:\Go\ <p><strong>Step 3) </strong>Navigate to to the src folder(/usr/local/go/src for mac and C:\Go\src for windows). Now from the code, the package name is calculation. Go requires the package should be placed in a directory of the same name under src directory. Create a directory named calculation in src folder. <p><strong>Step 4) </strong>Create a file called calc.go (You can give any name, but the package name in the code matters. Here it should be calculation) inside calculation directory and add the below code <pre>
+package calculation
+  
+func Do_add(num1 int, num2 int)(int) {
+    sum := num1 + num2
+    return sum
+}
+</pre><p><strong>Step 5) </strong>Run the command go install from the calculation directory which will compile the calc.go. <p style="text-align: center;"><a href="/images/1/020819_0833_GoProgrammi12.png" class="jh-image-popup-colorbox"><img src="/images/1/020819_0833_GoProgrammi12.png" alt=""></a> <p><strong>Step 6) </strong>Now go back to package_example.go and run go run package_example.go. The output will be Sum 25. <p>Note that the name of the function Do_add starts with a capital letter. This is because in Go if the function name starts with a capital letter it means other programs can see(access) it else other programs cannot access it. If the function name was do_add , then You would have got the error <p>cannot refer to unexported name calculation.calc.. <h2><a id="14"></a>Defer and stacking defers</h2><p>Defer statements are used to defer the execution of a function call until the function that contains the defer statement completes execution. <p>Lets learn this with an example: <pre>
+package main
+import "fmt"
+
+func sample() {  
+    fmt.Println("Inside the sample()")
+}
+func main() {  
+    //sample() will be invoked only after executing the statements of main()
+    defer sample()
+    fmt.Println("Inside the main()")
+}
+</pre><p>The output will be <pre>Inside the main()
+Inside the sample()
+</pre><p>Here execution of sample() is deferred until the execution of the enclosing function(main()) completes. <p>Stacking defer is using multiple defer statements. Suppose you have multiple defer statements inside a function. Go places all the deferred function calls in a stack, and once the enclosing function returns, the stacked functions are executed in the <strong>Last In First Out(LIFO) order. </strong>You can see this in the below example. <p>Execute the below code <pre>
+package main
+import "fmt"
+
+func display(a int) {  
+    fmt.Println(a)
+}
+func main() {  
+    defer display(1)
+    defer display(2)
+    defer display(3)
+    fmt.Println(4)
+}
+</pre><p>The output will be <pre>
+4
+3
+2
+1			</pre><p>Here the code inside the main() executes first, and then the deferred function calls are executed in the reverse order, i.e. 4, 3,2,1. <h2><a id="15"></a>Pointers</h2><p>Before explaining pointers let's will first discuss '&amp;' operator. The '&amp;' operator is used to get the address of a variable. It means '&amp;a' will print the memory address of variable a. <p>Execute the below program to display the value of a variable and the address of that variable <pre>
+package main
+import "fmt"
+
+func main() {
+	a := 20
+	fmt.Println("Address:",&a)
+	fmt.Println("Value:",a)
+}
+</pre><p>The result will be <pre>Address: 0xc000078008
+Value: 20
+</pre><p>A pointer variable stores the memory address of another variable. You can define a pointer using the syntax <pre>	var variable_name *type
+</pre><p>The asterisk(*) represents the variable is a pointer. You will understand more by executing the below program <pre>
+package main
+import "fmt"
+
+func main() {
+	//Create an integer variable a with value 20
+	a := 20
+	
+	//Create a pointer variable b and assigned the address of a
+	var b *int = &a
+
+	//print address of a(&a) and value of a  
+	fmt.Println("Address of a:",&a)
+	fmt.Println("Value of a:",a)
+
+	//print b which contains the memory address of a i.e. &a
+	fmt.Println("Address of pointer b:",b)
+
+	//*b prints the value in memory address which b contains i.e. the value of a
+	fmt.Println("Value of pointer b",*b)
+
+	//increment the value of variable a using the variable b
+	*b = *b+1
+
+	//prints the new value using a and *b
+	fmt.Println("Value of pointer b",*b)
+	fmt.Println("Value of a:",a)}
+</pre><p>The output will be <pre>Address of a: 0x416020
+Value of a: 20
+Address of pointer b: 0x416020
+Value of pointer b 20
+Value of pointer b 21
+Value of a: 21
+</pre><h2><a id="16"></a>Structures</h2><p>A Structure is a user defined datatype which itself contains one more element of the same or different type. <p>Using a structure is a 2 step process. <p>First, create(declare) a structure type <p>Second, create variables of that type to store values. <p>Structures are mainly used when you want to store related data together. <p>Consider a piece of employee information which has name, age, and address. You can handle this in 2 ways <p>Create 3 arrays - one array stores the names of employees, one stores age and the third one stores age. <p>Declare a structure type with 3 fields- name, address, and age. Create an array of that structure type where each element is a structure object having name, address, and age. <p>The first approach is not efficient. In these kinds of scenarios, structures are more convenient. <p>The syntax for declaring a structure is <pre>type structname struct {
+   variable_1 variable_1_type
+   variable_2 variable_2_type
+   variable_n variable_n_type
+}
+</pre><p>An example of a structure declaration is <pre>type emp struct {
+    name string
+    address string
+    age int
+}
+</pre><p>Here a new user defined type named emp is created. Now, you can create variables of the type emp using the syntax <pre>	var variable_name struct_name
+</pre><p>An example is <pre>var empdata1 emp 
+</pre><p>You can set values for the empdata1 as <pre>empdata1.name = "John"
+	empdata1.address = "Street-1, Bangalore"
+	empdata1.age = 30
+</pre><p>You can also create a structure variable and assign values by <pre>empdata2 := emp{"Raj", "Building-1, Delhi", 25}</pre><p>Here, you need to maintain the order of elements. Raj will be mapped to name, next element to address and the last one to age. <p>Execute the code below <pre>
+package main
+import "fmt"
+
+//declared the structure named emp
+type emp struct {
+        name string
+        address string
+        age int
+}       
+
+//function which accepts variable of emp type and prints name property
+func display(e emp) {
+          fmt.Println(e.name)
+}
+
+func main() {
+// declares a variable, empdata1, of the type emp
+var empdata1 emp
+//assign values to members of empdata1
+empdata1.name = "John"
+empdata1.address = "Street-1, London"
+empdata1.age = 30
+
+//declares and assign values to variable empdata2 of type emp
+empdata2 := emp{"Raj", "Building-1, Paris", 25}
+
+//prints the member name of empdata1 and empdata2 using display function
+display(empdata1)
+display(empdata2)
+}
+</pre><p><strong>Output</strong> <pre>John
+Raj
+</pre><h2><a id="17"></a>Methods(not functions)</h2><p>A method is a function with a receiver argument. Architecturally, it's between the func keyword and method name. The syntax of a method is <pre>func (variable variabletype) methodName(parameter1 paramether1type) {  
+}
+</pre><p>Let's convert the above example program to use methods instead of function. <pre>
+package main
+import "fmt"
+
+//declared the structure named emp
+type emp struct {
+    name string
+    address string
+    age int
+}
+
+//Declaring a function with receiver of the type emp
+func(e emp) display() {
+    fmt.Println(e.name)
+}
+
+func main() {
+    //declaring a variable of type emp
+    var empdata1 emp
+    
+    //Assign values to members
+    empdata1.name = "John"
+    empdata1.address = "Street-1, Lodon"
+    empdata1.age = 30
+
+    //declaring a variable of type emp and assign values to members
+    empdata2 := emp {
+        "Raj", "Building-1, Paris", 25}
+
+    //Invoking the method using the receiver of the type emp
+   // syntax is variable.methodname()
+    empdata1.display()
+    empdata2.display()
+}</pre><p>Go is not an object oriented language and it doesn't have the concept of class. Methods give a feel of what you do in object oriented programs where the functions of a class are invoked using the syntax objectname.functionname() <h2><a id="18"></a>Concurrency</h2><p>Go supports concurrent execution of tasks. It means Go can execute multiple tasks simultaneously. It is different from the concept of parallelism. In parallelism, a task is split into small subtasks and are executed in parallel. But in concurrency, multiple tasks are being executed simultaneously. Concurrency is achieved in Go using Goroutines and Channels. <h2><a id="19"></a>Goroutines</h2><p>A goroutine is a function which can run concurrently with other functions. Usually when a function is invoked the control gets transferred into the called function, and once its completed execution control returns to the calling function. The calling function then continues its execution. The calling function waits for the invoked function to complete the execution before it proceeds with the rest of the statements. <p>But in the case of goroutine, the calling function will not wait for the execution of the invoked function to complete. It will continue to execute with the next statements. You can have multiple goroutines in a program. <p>Also, the main program will exit once it completes executing its statements and it will not wait for completion of the goroutines invoked. <p>Goroutine is invoked using keyword go followed by a function call. <p>Example <pre>go add(x,y)</pre><p>You will understand goroutines with the below examples. Execute the below program <pre>
+package main
+import "fmt"
+    
+func display() {
+	for i:=0; i&lt;5; i++ {
+		fmt.Println("In display")
+	}
+}
+
+func main() {
+	//invoking the goroutine display()
+	go display()
+	//The main() continues without waiting for display()
+	for i:=0; i&lt;5; i++ {
+		fmt.Println("In main")
+	}
+}
+</pre><p>The output will be <pre>In main
+In main
+In main
+In main
+In main
+</pre><p>Here the main program completed execution even before the goroutine started. The display() is a goroutine which is invoked using the syntax <pre>go function_name(parameter list)</pre><p>In the above code, the main() doesn't wait for the display() to complete, and the main() completed its execution before the display() executed its code. So the print statement inside display() didn't get printed. <p>Now we modify the program to print the statements from display() as well. We add a time delay of 2 sec in the for loop of main() and a 1 sec delay in the for loop of the display(). <pre>
+package main
+import "fmt"
+import "time"
+    
+func display() {
+	for i:=0; i&lt;5; i++ {
+		time.Sleep(1 * time.Second)
+		fmt.Println("In display")
+	}
+}
+
+func main() {
+	//invoking the goroutine display()
+	go display()
+	for i:=0; i&lt;5; i++ {
+		time.Sleep(2 * time.Second)
+		fmt.Println("In main")
+	}
+}
+</pre><p>The output will be somewhat similar to <pre>
+In display
+In main
+In display
+In display
+In main
+In display
+In display
+In main
+In main
+In main
+</pre><p>Here You can see both loops are being executed in an overlapping fashion because of the concurrent execution. <h2><a id="20"></a>Channels</h2><p>Channels are a way for functions to communicate with each other. It can be thought as a medium to where one routine places data and is accessed by another routine. <p>A channel can be declared with the syntax <pre>channel_variable := make(chan datatype)</pre><p>Example: <pre>	ch := make(chan int)
+</pre><p>You can send data to a channel using the syntax <pre>channel_variable &lt;- variable_name</pre><p>Example <pre>    ch &lt;- x
+</pre><p>You can receive data from a channel using the syntax <pre>    variable_name := &lt;- channel_variable</pre><p>Example <pre>   y := &lt;- ch
+</pre><p>In the above examples of goroutine, you have seen the main program doesn't wait for the goroutine. But that is not the case when channels are involved. Suppose if a goroutine pushes data to channel, the main() will wait on the statement receiving channel data until it gets the data. <p>You will see this in below example. First, write a normal goroutine and see the behaviour. Then modify the program to use channels and see the behaviour. <p>Execute the below program <pre>
+package main
+import "fmt"
+import "time"
+    
+func display() {
+	time.Sleep(5 * time.Second)
+	fmt.Println("Inside display()")
+}
+
+func main() {
+	go display()
+	fmt.Println("Inside main()")
+}
+</pre><p>The output will be <pre>Inside main()
+</pre><p>The main() finished the execution and did exit before the goroutine executes. So the print inside the display() didn't get executed. <p>Now modify the above program to use channels and see the behaviour. <pre>
+package main
+import "fmt"
+import "time"
+    
+func display(ch chan int) {
+	time.Sleep(5 * time.Second)
+	fmt.Println("Inside display()")
+	ch &lt;- 1234
+}
+
+func main() {
+	ch := make(chan int) 
+	go display(ch)
+	x := &lt;-ch
+	fmt.Println("Inside main()")
+	fmt.Println("Printing x in main() after taking from channel:",x)
+}
+</pre><p>The output will be <pre>Inside display()
+Inside main()
+Printing x in main() after taking from channel: 1234
+</pre><p>Here what happens is the main() on reaching x := &lt;-ch will wait for data on channel ch. The display() has a wait of 5 seconds and then push data to the channel ch. The main() on receiving the data from the channel gets unblocked and continues its execution. <p>The sender who pushes data to channel can inform the receivers that no more data will be added to the channel by closing the channel. This is mainly used when you use a loop to push data to a channel. A channel can be closed using <pre>close(channel_name)</pre><p>And at the receiver end, it is possible to check whether the channel is closed using an additional variable while fetching data from channel using <pre>variable_name, status := &lt;- channel_variable</pre><p>If the status is True it means you received data from the channel. If false, it means you are trying to read from a closed channel <p>You can also use channels for communication between goroutines. Need to use 2 goroutines – one pushes data to the channel and other receives the data from the channel. See the below program <pre>
+package main
+import "fmt"
+import "time"
+
+//This subroutine pushes numbers 0 to 9 to the channel and closes the channel
+func add_to_channel(ch chan int) {	
+	fmt.Println("Send data")
+	for i:=0; i&lt;10; i++ {
+		ch &lt;- i //pushing data to channel
+	}
+	close(ch) //closing the channel
+
+}
+
+//This subroutine fetches data from the channel and prints it.
+func fetch_from_channel(ch chan int) {
+	fmt.Println("Read data")
+	for {
+		//fetch data from channel
+x, flag := &lt;- ch
+
+		//flag is true if data is received from the channel
+//flag is false when the channel is closed
+if flag == true {
+			fmt.Println(x)
+		}else{
+			fmt.Println("Empty channel")
+			break	
+		}	
+	}
+}
+
+func main() {
+	//creating a channel variable to transport integer values
+	ch := make(chan int)
+
+	//invoking the subroutines to add and fetch from the channel
+	//These routines execute simultaneously
+	go add_to_channel(ch)
+	go fetch_from_channel(ch)
+
+	//delay is to prevent the exiting of main() before goroutines finish
+	time.Sleep(5 * time.Second)
+	fmt.Println("Inside main()")
+}
+</pre><p>Here there are 2 subroutines one pushes data to the channel and other prints data to the channel. The function add_to_channel adds the numbers from 0 to 9 and closes the channel. Simultaneously the function fetch_from_channel waits at <p>x, flag := &lt;- ch and once the data become available, it prints the data. It exits once the flag is false which means the channel is closed. <p>The wait in the main() is given to prevent the exiting of main() until the goroutines finish the execution. <p>Execute the code and see the output as <pre>Read data
+Send data
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Empty channel
+Inside main()
+</pre><h2><a id="21"></a>Select</h2><p>Select can be viewed as a switch statement which works on channels. Here the case statements will be a channel operation. Usually, each case statements will be read attempt from the channel. When any of the cases is ready(the channel is read), then the statement associated with that case is executed. If multiple cases are ready, it will choose a random one. You can have a default case which is executed if none of the cases is ready. <p>Let's see the below code <pre>
+package main
+import "fmt"
+import "time"
+
+//push data to channel with a 4 second delay
+func data1(ch chan string) {  
+    time.Sleep(4 * time.Second)
+    ch &lt;- "from data1()"
+}
+
+//push data to channel with a 2 second delay
+func data2(ch chan string) {  
+    time.Sleep(2 * time.Second)
+    ch &lt;- "from data2()"
+}
+
+func main() {
+    //creating channel variables for transporting string values
+    chan1 := make(chan string)
+    chan2 := make(chan string)
+    
+    //invoking the subroutines with channel variables
+    go data1(chan1)
+    go data2(chan2)
+    
+    //Both case statements wait for data in the chan1 or chan2.
+    //chan2 gets data first since the delay is only 2 sec in data2().
+    //So the second case will execute and exits the select block
+    select {
+    case x := &lt;-chan1:
+        fmt.Println(x)
+    case y := &lt;-chan2:
+        fmt.Println(y)
+    }
+}
+</pre><p>Executing the above program will give the output: <pre>from data2()</pre><p>Here the select statement waits for data to be available in any of the channels. The data2() adds data to the channel after a sleep of 2 seconds which will cause the second case to execute. <p>Add a default case to the select in the same program and see the output. Here, on reaching select block, if no case is having data ready on the channel, it will execute the default block without waiting for data to be available on any channel. <pre>
+package main
+import "fmt"
+import "time"
+
+//push data to channel with a 4 second delay
+func data1(ch chan string) {  
+    time.Sleep(4 * time.Second)
+    ch &lt;- "from data1()"
+}
+
+//push data to channel with a 2 second delay
+func data2(ch chan string) {  
+    time.Sleep(2 * time.Second)
+    ch &lt;- "from data2()"
+}
+
+func main() {
+    //creating channel variables for transporting string values  
+    chan1 := make(chan string)
+    chan2 := make(chan string)
+    
+    //invoking the subroutines with channel variables
+    go data1(chan1)
+    go data2(chan2)
+
+    //Both case statements check for data in chan1 or chan2.
+    //But data is not available (both routines have a delay of 2 and 4 sec)
+    //So the default block will be executed without waiting for data in channels.
+    select {
+    case x := &lt;-chan1:
+        fmt.Println(x)
+    case y := &lt;-chan2:
+        fmt.Println(y)
+    default:
+    	fmt.Println("Default case executed")
+    }
+}
+</pre><p>This program will give the output: <pre>Default case executed			
+</pre><p>This is because when the select block reached, no channel had data for reading. So, the default case is executed. <h2><a id="22"></a>Mutex</h2><p>Mutex is the short form for mutual exclusion. Mutex is used when you don't want to allow a resource to be accessed by multiple subroutines at the same time. Mutex has 2 methods - Lock and Unlock. Mutex is contained in sync package. So, you have to import the sync package. The statements which have to be mutually exclusively executed can be placed inside mutex.Lock() and mutex.Unlock(). <p>Let's learn mutex with an example which is counting the number of times a loop is executed. In this program we expect routine to run loop 10 times and the count is stored in sum. You call this routine 3 times so the total count should be 30. The count is stored in a global variable count. <p>First, You run the program without mutex <pre>
+package main
+import "fmt"
+import "time"
+import "strconv"
+import "math/rand"
+//declare count variable, which is accessed by all the routine instances
+var count = 0
+
+//copies count to temp, do some processing(increment) and store back to count
+//random delay is added between reading and writing of count variable
+func process(n int) {
+	//loop incrementing the count by 10
+	for i := 0; i &lt; 10; i++ {
+		time.Sleep(time.Duration(rand.Int31n(2)) * time.Second)
+		temp := count
+		temp++
+		time.Sleep(time.Duration(rand.Int31n(2)) * time.Second)
+		count = temp
+	}
+	fmt.Println("Count after i="+strconv.Itoa(n)+" Count:", strconv.Itoa(count))
+}
+
+func main() {
+	//loop calling the process() 3 times
+	for i := 1; i &lt; 4; i++ {
+		go process(i)
+	}
+
+	//delay to wait for the routines to complete
+	time.Sleep(25 * time.Second)
+	fmt.Println("Final Count:", count)
+}
+</pre><p>See the result <pre> Count after i=1 Count: 11
+Count after i=3 Count: 12
+Count after i=2 Count: 13
+Final Count: 13
+</pre><p>The result could be different when you execute it but the final result won't be 30. <p>Here what happens is 3 goroutines are trying to increase the loop count stored in the variable count. Suppose at a moment count is 5 and goroutine1 is going to increment the count to 6. The main steps include <p>Copy count to temp <p>Increment temp <p>Store temp back to count <p>Suppose soon after performing step 3 by goroutine1; another goroutine might have an old value say 3 does the above steps and store 4 back, which is wrong. This can be prevented by using mutex which causes other routines to wait when one routine is already using the variable. <p>Now You will run the program with mutex. Here the above mentioned 3 steps are executed in a mutex. <pre>
+package main
+import "fmt"
+import "time"
+import "sync"
+import "strconv"
+import "math/rand"
+
+//declare a mutex instance
+var mu sync.Mutex
+
+//declare count variable, which is accessed by all the routine instances
+var count = 0
+
+//copies count to temp, do some processing(increment) and store back to count
+//random delay is added between reading and writing of count variable
+func process(n int) {
+	//loop incrementing the count by 10
+	for i := 0; i &lt; 10; i++ {
+		time.Sleep(time.Duration(rand.Int31n(2)) * time.Second)
+		//lock starts here
+		mu.Lock()
+		temp := count
+		temp++
+		time.Sleep(time.Duration(rand.Int31n(2)) * time.Second)
+		count = temp
+		//lock ends here
+		mu.Unlock()
+	}
+	fmt.Println("Count after i="+strconv.Itoa(n)+" Count:", strconv.Itoa(count))
+}
+
+func main() {
+	//loop calling the process() 3 times
+	for i := 1; i &lt; 4; i++ {
+		go process(i)
+	}
+
+	//delay to wait for the routines to complete
+	time.Sleep(25 * time.Second)
+	fmt.Println("Final Count:", count)
+}</pre><p>Now the output will be <pre> Count after i=3 Count: 21
+Count after i=2 Count: 28
+Count after i=1 Count: 30
+Final Count: 30
+</pre><p>Here we get the expected result as final output. Because the statements reading, incrementing and writing back of count is executed in a mutex. <h2><a id="23"></a>Error handling</h2><p>Errors are abnormal conditions like closing a file which is not opened, open a file which doesn't exist, etc. Functions usually return errors as the last return value. <p>The below example explains more about the error. <pre>
+package main
+import "fmt"
+import "os"
+
+//function accepts a filename and tries to open it.
+func fileopen(name string) {
+    f, er := os.Open(name)
+
+    //er will be nil if the file exists else it returns an error object  
+    if er != nil {
+        fmt.Println(er)
+        return
+    }else{
+    	fmt.Println("file opened", f.Name())
+    }
+}
+
+func main() {  
+    fileopen("invalid.txt")
+}
+</pre><p>The output will be: <pre>open /invalid.txt: no such file or directory
+</pre><p>Here we tried to open a non-existing file, and it returned the error to er variable. If the file is valid, then the error will be null <h2><a id="24"></a>Custom errors</h2><p>Using this feature, you can create custom errors. This is done by using New() of error package. We will rewrite the above program to make use of custom errors. <p>Run the below program <pre>
+package main
+import "fmt"
+import "os"
+import "errors"
+
+//function accepts a filename and tries to open it.
+func fileopen(name string) (string, error) {
+    f, er := os.Open(name)
+
+    //er will be nil if the file exists else it returns an error object  
+    if er != nil {
+        //created a new error object and returns it  
+        return "", errors.New("Custom error message: File name is wrong")
+    }else{
+    	return f.Name(),nil
+    }
+}
+
+func main() {  
+    //receives custom error or nil after trying to open the file
+    filename, error := fileopen("invalid.txt")
+    if error != nil {
+        fmt.Println(error)
+    }else{
+    	fmt.Println("file opened", filename)
+    }  
+}
+</pre><p>The output will be: <pre>Custom error message:File name is wrong</pre><p>Here the area() returns the area of a square. If the input is less than 1 then area() returns an error message. <h2><a id="25"></a>Reading files</h2><p>Files are used to store data. Go allows us to read data from the files <p>First create a file, data.txt, in your present directory with the below content. <pre>Line one
+Line two
+Line three
+</pre><p>Now run the below program to see it prints the contents of the entire file as output <pre>
+package main
+import "fmt"
+import "io/ioutil"
+
+func main() {  
+    data, err := ioutil.ReadFile("data.txt")
+    if err != nil {
+        fmt.Println("File reading error", err)
+        return
+    }
+    fmt.Println("Contents of file:", string(data))
+}
+</pre><p>Here the data, err := ioutil.ReadFile("data.txt") reads the data and returns a byte sequence. While printing it is converted to string format. <h2><a id="26"></a>Writing files</h2><p>You will see this with a program <pre>
+package main
+import "fmt"
+import "os"
+
+func main() {  
+    f, err := os.Create("file1.txt")
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    l, err := f.WriteString("Write Line one")
+    if err != nil {
+        fmt.Println(err)
+        f.Close()
+        return
+    }
+    fmt.Println(l, "bytes written")
+    err = f.Close()
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+}
+</pre><p>Here a file is created, test.txt. If the file already exists then the contents of the file are truncated. Writeline() is used to write the contents to the file. After that, You closed the file using Close(). <h2><a id="27"></a>Cheat Sheet</h2><p>In this Go tutorial, we covered, <table class="table table-striped"><tr><td><strong>Topic </strong> </td><td><strong>Description</strong> </td><td><strong>Syntax</strong> </td></tr><tr><td>Basic types </td><td>Numeric, string, bool </td><td> </td></tr><tr><td>Variables </td><td>Declare and assign values to variables </td><td>var variable_name type var variable_name type = value var variable_name1, variable_name2 = value1, value2 variable_name := value </td></tr><tr><td>Constants </td><td>Variables whose value cannot be changed once assigned </td><td>const variable = value </td></tr><tr><td>For Loop </td><td>Execute statements in a loop. </td><td>for initialisation_expression; evaluation_expression; iteration_expression{ // one or more statement } </td></tr><tr><td>If else </td><td>It is a conditional statement </td><td>if condition{ // statements_1 }else{ // statements_2 } </td></tr><tr><td>switch </td><td>Conditional statement with multiple cases </td><td>switch expression { case value_1: statements_1 case value_2: statements_2 case value_n: statements_n default: statements_default } </td></tr><tr><td>Array </td><td>Fixed size named sequence of elements of same type </td><td>arrayname := [size] type {value_0,value_1,…,value_size-1} </td></tr><tr><td>Slice </td><td>Portion or segment of an array </td><td>var slice_name [] type = array_name[start:end] </td></tr><tr><td>Functions </td><td>Block of statements which performs a specific task </td><td>func function_name(parameter_1 type, parameter_n type) return_type { //statements } </td></tr><tr><td>Packages </td><td>Are used to organise the code. Increases code readability and reusability </td><td>import package_nam </td></tr><tr><td>Defer </td><td>Defers the execution of a function till the containing function finishes execution </td><td>defer function_name(parameter_list) </td></tr><tr><td>Pointers </td><td>Stores the memory address of another variable. </td><td>var variable_name *type </td></tr><tr><td>Structure </td><td>User defined datatype which itself contains one more element of the same or different type </td><td>type structname struct { variable_1 variable_1_type variable_2 variable_2_type variable_n variable_n_type } </td></tr><tr><td>Methods </td><td>A method is a function with a receiver argument </td><td>func (variable variabletype) methodName(parameter_list) { } </td></tr><tr><td>Goroutine </td><td>A function which can run concurrently with other functions. </td><td>go function_name(parameter_list) </td></tr><tr><td>Channel </td><td>Way for functions to communicate with each other. A medium to which one routine places data and is accessed by another routine. </td><td>Declare: ch := make(chan int) Send data to channel: channel_variable &lt;- variable_name Receive from channel: variable_name := &lt;- channel_variable </td></tr><tr><td>Select </td><td>Switch statement which works on channels. The case statements will be a channel operation. When any of the channel is ready with data, then the statement associated with that case is executed </td><td>select { case x := &lt;-chan1: fmt.Println(x) case y := &lt;-chan2: fmt.Println(y) } </td></tr><tr><td>Mutex </td><td>Mutex is used when you don't want to allow a resource to be accessed by multiple subroutines at the same time. Mutex has 2 methods - Lock and Unlock </td><td>mutex.Lock() //statements mutex.Unlock(). </td></tr><tr><td>Read files </td><td>Reads the data and returns a byte sequence. </td><td>Data, err := ioutil.ReadFile(filename) </td></tr><tr><td>Write file </td><td>Writes data to a file </td><td>l, err := f.WriteString(text_to_write) </td></tr></table><p id="slidetag">&nbsp;</p></div></div></div></div></div></div></div><div class="g-grid"><div class="g-block size-100"><div class="g-content"><div class="platform-content"><div class="moduletable "> <span class="related-title">YOU MIGHT LIKE:</span> <div class="ac acimage-left three-column image-border-light"><article><h6 class="cat" property="genre"> DevOps </h6><div class="image-feat"> <a href="kubernetes-vs-docker.html"> <a href="kubernetes-vs-docker.html" onclick="ga('send', 'event', 'Related_articles', 'Kubernetes vs Docker: Must Know Differences!', 'Kubernetes vs Docker: Must Know Differences!');"><img src="/images/relateditemsxtd/7d3db58a37283d310a7335d20f04b9f7.png" alt="" title=""></a>  </div><header> <a href="kubernetes-vs-docker.html" onclick="ga('send', 'event', 'Related_articles', 'Kubernetes vs Docker: Must Know Differences!', 'Kubernetes vs Docker: Must Know Differences!');"><h4 class="title" property="genre">Kubernetes vs Docker: Must Know Differences!</h4></a> </header><div class="content" property="articleBody"><p>What is Kubernetes? Kubernetes is an open-source container management software developed in the...</p></div><footer> <a class="rm" href="kubernetes-vs-docker.html" onclick="ga('send', 'event', 'Related_articles', 'Kubernetes vs Docker: Must Know Differences!', 'Kubernetes vs Docker: Must Know Differences!');">Read more</a> </footer></article><article><h6 class="cat" property="genre"> R Programming </h6><div class="image-feat"> <a href="r-lists-create-select.html"> <a href="r-lists-create-select.html" onclick="ga('send', 'event', 'Related_articles', 'List in R: Create, Select Elements with Example', 'List in R: Create, Select Elements with Example');"><img src="/images/relateditemsxtd/cb30f1640c2ac5b2febb8b3509c7533f.png" alt="" title=""></a>  </div><header> <a href="r-lists-create-select.html" onclick="ga('send', 'event', 'Related_articles', 'List in R: Create, Select Elements with Example', 'List in R: Create, Select Elements with Example');"><h4 class="title" property="genre">List in R: Create, Select Elements with Example</h4></a> </header><div class="content" property="articleBody"><p>What is a List? A list is a great tool to store many kinds of object in the order expected. We can...</p></div><footer> <a class="rm" href="r-lists-create-select.html" onclick="ga('send', 'event', 'Related_articles', 'List in R: Create, Select Elements with Example', 'List in R: Create, Select Elements with Example');">Read more</a> </footer></article><article><h6 class="cat" property="genre"> Review </h6><div class="image-feat"> <a href="best-gift-programmers.html"> <a href="best-gift-programmers.html" onclick="ga('send', 'event', 'Related_articles', 'Best Gifts for Programmers: 30 Ideas for Coders [2020 Update]', 'Best Gifts for Programmers: 30 Ideas for Coders [2020 Update]');"><img src="/images/relateditemsxtd/f7b3635419fd37e3b7926d0c4542b85e.png" alt="" title=""></a>  </div><header> <a href="best-gift-programmers.html" onclick="ga('send', 'event', 'Related_articles', 'Best Gifts for Programmers: 30 Ideas for Coders [2020 Update]', 'Best Gifts for Programmers: 30 Ideas for Coders [2020 Update]');"><h4 class="title" property="genre">Best Gifts for Programmers: 30 Ideas for Coders [2020 Update]</h4></a> </header><div class="content" property="articleBody"><p>Searching for a gift for your coder friend, partner, colleague, a relative could be daunting as...</p></div><footer> <a class="rm" href="best-gift-programmers.html" onclick="ga('send', 'event', 'Related_articles', 'Best Gifts for Programmers: 30 Ideas for Coders [2020 Update]', 'Best Gifts for Programmers: 30 Ideas for Coders [2020 Update]');">Read more</a> </footer></article><article><h6 class="cat" property="genre"> Jenkins </h6><div class="image-feat"> <a href="jenkins-github-integration.html"> <a href="jenkins-github-integration.html" onclick="ga('send', 'event', 'Related_articles', 'Jenkins GitHub Integration: Install Git Plugin', 'Jenkins GitHub Integration: Install Git Plugin');"><img src="/images/relateditemsxtd/96ed788104a323825c20b47fdf2e1c33.png" alt="" title=""></a>  </div><header> <a href="jenkins-github-integration.html" onclick="ga('send', 'event', 'Related_articles', 'Jenkins GitHub Integration: Install Git Plugin', 'Jenkins GitHub Integration: Install Git Plugin');"><h4 class="title" property="genre">Jenkins GitHub Integration: Install Git Plugin</h4></a> </header><div class="content" property="articleBody"><p>You have learned, from previous Guru99 tutorials, what Jenkins is and how to install it onto a...</p></div><footer> <a class="rm" href="jenkins-github-integration.html" onclick="ga('send', 'event', 'Related_articles', 'Jenkins GitHub Integration: Install Git Plugin', 'Jenkins GitHub Integration: Install Git Plugin');">Read more</a> </footer></article><article><h6 class="cat" property="genre"> Jenkins </h6><div class="image-feat"> <a href="jenkins-pipeline-tutorial.html"> <a href="jenkins-pipeline-tutorial.html" onclick="ga('send', 'event', 'Related_articles', 'Jenkins Pipeline Tutorial: JenkinsFile EXAMPLE', 'Jenkins Pipeline Tutorial: JenkinsFile EXAMPLE');"><img src="/images/relateditemsxtd/0fbbcef275b2dc66b43459b607c062b7.png" alt="" title=""></a>  </div><header> <a href="jenkins-pipeline-tutorial.html" onclick="ga('send', 'event', 'Related_articles', 'Jenkins Pipeline Tutorial: JenkinsFile EXAMPLE', 'Jenkins Pipeline Tutorial: JenkinsFile EXAMPLE');"><h4 class="title" property="genre">Jenkins Pipeline Tutorial: JenkinsFile EXAMPLE</h4></a> </header><div class="content" property="articleBody"><p>What is Jenkins Pipeline? In Jenkins, a pipeline is a group of events or jobs which are...</p></div><footer> <a class="rm" href="jenkins-pipeline-tutorial.html" onclick="ga('send', 'event', 'Related_articles', 'Jenkins Pipeline Tutorial: JenkinsFile EXAMPLE', 'Jenkins Pipeline Tutorial: JenkinsFile EXAMPLE');">Read more</a> </footer></article><article><h6 class="cat" property="genre"> SDLC </h6><div class="image-feat"> <a href="sdlc-interview-questions.html"> <a href="sdlc-interview-questions.html" onclick="ga('send', 'event', 'Related_articles', 'Top 27 SDLC Interview Questions and Answers', 'Top 27 SDLC Interview Questions and Answers');"><img src="/images/relateditemsxtd/14113db3ee9373e90e889c6cd52f41c5.jpg" alt="" title=""></a>  </div><header> <a href="sdlc-interview-questions.html" onclick="ga('send', 'event', 'Related_articles', 'Top 27 SDLC Interview Questions and Answers', 'Top 27 SDLC Interview Questions and Answers');"><h4 class="title" property="genre">Top 27 SDLC Interview Questions and Answers</h4></a> </header><div class="content" property="articleBody"><p>1) What Is SDLC? SDLC is an abbreviation of Software Development Life Cycle. SDLC is series of...</p></div><footer> <a class="rm" href="sdlc-interview-questions.html" onclick="ga('send', 'event', 'Related_articles', 'Top 27 SDLC Interview Questions and Answers', 'Top 27 SDLC Interview Questions and Answers');">Read more</a> </footer></article></div></div></div></div></div></div></main> </div><div class="g-block size-25"><aside id="g-aside"><div class="g-grid"><div class="g-block size-100"><div class="g-content"><div class="platform-content"><div class="moduletable "><div class="custom"> <center><div id="div-gpt-ad-1571916596507-0" class="responsive-guru99-mobile-devices1" style="width: 300px;"> <script>googletag.cmd.push(function(){googletag.display('div-gpt-ad-1571916596507-0');});</script> </div></center> <br> <center><div id="div-gpt-ad-1571916546153-0" class="responsive-guru99-mobile-devices1" style="width: 300px;"> <script>googletag.cmd.push(function(){googletag.display('div-gpt-ad-1571916546153-0');});</script> </div></center> </div> </div></div><div class="platform-content"><div class="moduletable "><div class="custom"><div class="feedback feedback1"><h2><span class="fa fa-location-arrow"></span> Trending Course</h2><ul> <li><a href="index.htm" id="link1"><span id="text1"></span></a></li> <li><a href="index.htm" id="link2"><span id="text2"></span></a></li> <li><a href="index.htm" id="link3"><span id="text3"></span></a></li> <li><a href="index.htm" id="link4"><span id="text4"></span></a></li> </ul> </div> </div> </div></div><div class="platform-content"><div class="moduletable "><div class="custom"> <script src="Customization\sticky\jquery.stickyPanel.min.js"></script> <script src="Customization\sticky\sticky_ads.js"></script> <br><div id="div-gpt-ad-1543194583199-0" class="sticky responsive-guru99-mobile-devices1" style="width: 300px;"> <script>googletag.cmd.push(function(){googletag.display('div-gpt-ad-1543194583199-0');});</script> </div> </div> </div></div><div class="platform-content"><div class="moduletable "><div class="custom"> <script src="Customization\sticky\carbon_sticky_ads.js"></script><div id="carbon-block" class="carbonadsstickyads responsive-carbonadsguru99-mobile"></div></div></div></div></div></div></div></aside></div></div></section><footer id="g-footer"><div class="g-container"><div class="g-grid"><div class="g-block size-100"><div class="g-content"><div class="platform-content"><div class="moduletable "><div class="custom"><div class="g-grid"><div class="g-block size-100 hidden-phone"><div class="platform-content"><div class="moduletable "><h2 style="margin: 0px;"><center>Top Tutorials</center></h2></div></div></div></div><div class="g-grid"><div class="g-block size-24"><div class="platform-content"><div class="moduletable "> <a href="https://www.facebook.com/guru99com/" style="color: #3F3F3F;background: white;font-size: 21px;border-radius: 5px;padding-right: 7px;padding-left: 7px;"><span class="fa fa-facebook"></span></a> <a href="https://twitter.com/guru99com" style="color: #3F3F3F;background: white;font-size: 21px;border-radius: 5px;margin-left: 3px;padding-right: 3px;padding-left: 3px;"><span class="fa fa-twitter"></span></a> <a href="https://www.linkedin.com/company/guru99/" style="color: #3F3F3F;background: white;font-size: 21px;border-radius: 5px;margin-left: 3px;padding-right: 3px;padding-left: 3px;"><span class="fa fa-linkedin"></span></a> <a href="https://www.youtube.com/channel/UC19i1XD6k88KqHlET8atqFQ" style="color: #3F3F3F;background: white;font-size: 21px;border-radius: 5px;margin-left: 3px;padding-right: 3px;padding-left: 3px;"><span class="fa fa-youtube-play"></span></a> <a href="https://forms.aweber.com/form/46/724807646.htm" style="color: #3F3F3F;background: white;font-size: 19px;border-radius: 5px;margin-left: 3px;padding-right: 5px;padding-left: 5px;"><span class="fa fa-envelope"></span></a> <h3 style="margin: 0px;padding-bottom:9px;padding-top:20px;">About</h3> <a href="about-us.html">About Us</a><br> <a href="advertise-us.html">Advertise with Us</a><br> <a href="become-an-instructor.html">Write For Us</a><br> <a href="contact-us.html">Contact Us</a><br><h3 style="margin: 0px;padding-bottom:9px;padding-top:20px;">Career Suggestion</h3> <a href="best-sap-module.html">SAP Career Suggestion Tool</a><br> <a href="software-testing-career-complete-guide.html">Software Testing as a Career</a><br><br> </div></div></div><div class="g-block box4 size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-code","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px;padding-top: 25px;"><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -150px;background:#ffe34c;"> <a href="selenium-tutorial.html"> <i class="fa fa-bug" style="color: #000000;font-size: 70px; line-height: 125px;padding-left:27px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="selenium-tutorial.html" style="color:#FFF;">Selenium</a></h4></div></div></div></div><div class="g-block box4 size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-code","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px; padding-top: 25px;"><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -150px;background:#ff7f50;"> <a href="software-testing.html"> <i class="fa fa-code-fork" style="color: #000000; font-size: 70px; line-height: 125px;padding-left:45px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="software-testing.html" style="color:#FFF;">Testing</a></h4></div></div></div></div><div class="g-block box4 size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-code","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px; padding-top: 25px;"><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -150px;background:#B5EAAA;"> <a href="ethical-hacking-tutorials.html"> <i class="fa fa-laptop" style="color: #000000; font-size: 70px; line-height: 125px;padding-left:27px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="ethical-hacking-tutorials.html" style="color:#FFF;">Hacking</a></h4></div></div></div></div></div><div class="g-grid"><div class="g-block size-24"><div class="platform-content"><div class="moduletable "><h3 style="margin: 0px; padding-bottom:9px;">Interesting</h3> <a href="ebook-pdf.html">eBook</a><br> <a href="blog\index.htm">Blog</a><br> <a href="tests.html">Quiz</a><br> <a href="sap-ebook-pdf.html">SAP eBook</a><br><br><br> </div></div></div><div class="g-block box4 size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-user","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px; "><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -245px;background:#72A81A;"> <a href="sap-training-hub.html"> <i class="fa fa-wrench" style="color: #000; font-size: 70px; line-height: 125px;padding-left:28px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="sap-training-hub.html" style="color:#FFF;">SAP</a></h4></div></div></div></div><div class="g-block box4 size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-user","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px; "><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -245px;background:#ED9600;"> <a href="java-tutorial.html"> <i class="fa fa-coffee" style="color: #000; font-size: 70px; line-height: 125px;padding-left:25px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="java-tutorial.html" style="color:#FFF;">Java</a></h4></div></div></div></div><div class="g-block box4 size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-code","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px;"><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -245px;background:#FFE87C;"> <a href="python-tutorials.html"> <i class="fa fa-code" style="color: #000; font-size: 70px; line-height: 125px;padding-left:27px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="python-tutorials.html" style="color:#FFF;">Python</a></h4></div></div></div></div></div><div class="g-grid execute_online"><div class="g-block size-24"><div class="platform-content"><div class="moduletable "><h3 style="margin: 0px; padding-bottom:9px;">Execute online</h3> <a href="try-java-editor.html">Execute Java Online</a><br> <a href="execute-javascript-online.html">Execute Javascript</a><br> <a href="execute-html-online.html">Execute HTML</a><br> <a href="execute-python-online.html">Execute Python</a><br> </div></div></div><div class="g-block size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-user","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px;"><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -170px;background:#2282E8;"> <a href="jmeter-tutorials.html"> <i class="fa fa-book" style="color: #000; font-size: 70px; line-height: 125px;padding-left:28px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="jmeter-tutorials.html" style="color:#FFF;">Jmeter</a></h4></div></div></div></div><div class="g-block size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-code-fork","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px;"><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -170px;background:#bba7db;"> <a href="informatica-tutorials.html"> <i class="fa fa-suitcase" style="color: #000; font-size: 70px; line-height: 125px;padding-left:27px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="informatica-tutorials.html" style="color:#FFF;">Informatica</a></h4></div></div></div></div><div class="g-block size-24 hidden-phone"><div class="g-content g-particle"><div class="canvas-graph" data-canvas-graph="{" icon":"fa="" fa-code-fork","iconsize":80,"radius":110,"size":15,"start":35}"="" style="width: 105px; height: 140px;"><canvas width="125px" height="130px"></canvas><div class="canvas-middle" style="width: 125px;height: 125px;border-radius: 125px;margin-left: 0px;margin-top: -170px;background:#c36241;"> <a href="jira-tutorial-a-complete-guide-for-beginners.html"> <i class="fa fa-cloud" style="color: #000; font-size: 70px; line-height: 125px;padding-left:28px;"></i> </a> <h4 style="text-align:center; margin:5px;"><a href="jira-tutorial-a-complete-guide-for-beginners.html" style="color:#FFF;">JIRA</a></h4></div></div></div></div></div> <script src="Customization\footer_ads.js"></script> </div> </div></div><div class="platform-content"><div class="moduletable "><div class="custom"> </div> </div></div></div></div></div><div class="g-grid"><div class="g-block size-50 align-left"><div id="branding-9192-particle" class="g-content g-particle"><div class="g-branding "><div class="brackbranding">
+&copy; Copyright - Guru99 2020
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="privacy-policy.html" style="color:#f8f8f8;">Privacy Policy</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="affiliate-earning-disclaimer.html" style="color:#f8f8f8;">Affiliate Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="terms-of-service.html" style="color:#f8f8f8;">ToS</a> </div></div></div></div><div class="g-block size-50"><div class="spacer"></div></div></div></div></footer></div> <script src="media\plg_jchoptimize\cache\js\68deca53e0ee326dd7d0fb6da8ec5569_0.js" async=""></script> </body> </html>
